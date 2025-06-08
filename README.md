@@ -1,3 +1,3 @@
-# DFT Final Project: fcc Carbon Crystal and the C(100) Surface" 
-# AB initio methods
+#DFT Final Project: fcc Carbon Crystal and the C(100) Surface" 
+#AB initio methods
 #VASP
