@@ -1,0 +1,1060 @@
+ML_LOGFILE 0.2.1
+
+
+* MEMORY INFORMATION ***********************************************************************************************************************
+
+Estimated memory consumption for ML force field generation (MB):
+
+Persistent allocations for force field        :    201.8
+|
+|-- CMAT for basis                            :     81.2
+|-- FMAT for basis                            :      0.0
+|-- DESC for basis                            :     15.8
+|-- DESC product matrix                       :      4.7
+
+Persistent allocations for ab initio data     :      0.1
+|
+|-- Ab initio data                            :      0.0
+|-- Ab initio data (new)                      :      0.1
+
+Temporary allocations for sparsification      :      0.0
+|
+|-- SVD matrices                              :      0.0
+
+Other temporary allocations                   :      9.9
+|
+|-- Descriptors                               :      0.0
+|-- Regression                                :      0.0
+|-- Prediction                                :      9.9
+
+Total memory consumption                      :    211.8
+
+********************************************************************************************************************************************
+
+
+* MACHINE LEARNING SETTINGS ****************************************************************************************************************
+
+This section lists the available machine-learning related settings with a short description, their
+selected values and the INCAR tags. The column between the value and the INCAR tag may contain a
+"state indicator" highlighting the origin of the value. Here is a list of possible indicators:
+
+ *     : (empty) Tag was not provided in the INCAR file, a default value was chosen automatically.
+ * (I) : Value was provided in the INCAR file.
+ * (i) : Value was provided in the INCAR file, deprecated tag.
+ * (!) : A value found in the INCAR file was overwritten by the contents of the ML_FF or ML_AB file.
+ * (?) : The value for this tag was never set (please report this to the VASP developers).
+
+Tag values with associated units are given here in Angstrom/eV, if not specified otherwise.
+
+Please refer to the VASP online manual for a detailed description of available INCAR tags.
+
+
+General settings
+--------------------------------------------------------------------------------------------------------------------------------------------
+Machine learning operation mode in strings (supertag)                                                 :           run (I) ML_MODE                 
+Machine learning operation mode                                                                       :             2     ML_ISTART               
+Precontraction of weights on Kernel for fast execution (ML_ISTART=2 only), but no error estimation    :             F     ML_LFAST                
+Controls the verbosity of the output at each MD step when machine learning is used                    :             1     ML_OUTPUT_MODE          
+Sets the output frequency at various places for ML_ISTART=2                                           :             1     ML_OUTBLOCK             
+
+
+Descriptor settings
+--------------------------------------------------------------------------------------------------------------------------------------------
+Radial descriptors:
+-------------------
+Cutoff radius of radial descriptors                                                                   :   8.00000E+00     ML_RCUT1                
+Gaussian width for broadening the atomic distribution for radial descriptors                          :   5.00000E-01     ML_SION1                
+Number of radial basis functions for atomic distribution for radial descriptors                       :            12     ML_MRB1                 
+
+Angular descriptors:
+--------------------
+Descriptor type (standard, linear-scaling with element types, ...)                                    :             0     ML_DESC_TYPE            
+Cutoff radius of angular descriptors                                                                  :   5.00000E+00     ML_RCUT2                
+Gaussian width for broadening the atomic distribution for angular descriptors                         :   5.00000E-01     ML_SION2                
+Number of radial basis functions for atomic distribution for angular descriptors                      :             8     ML_MRB2                 
+Maximum angular momentum quantum number of spherical harmonics used to expand atomic distributions    :             3     ML_LMAX2                
+Angular filtering enabled                                                                             :             T     ML_LAFILT2              
+Angular filtering parameter a_FILT                                                                    :   2.00000E-03     ML_AFILT2               
+Angular filtering function type                                                                       :             2     ML_IAFILT2              
+Enable sparsification of angular descriptors                                                          :             F     ML_LSPARSDES            
+Number of highest eigenvalues relevant in the sparsification algorithm of the angular descriptors     :             5     ML_NRANK_SPARSDES       
+Desired ratio of selected to all descriptors resulting from the angular descriptor sparsification     :   5.00000E-01     ML_RDES_SPARSDES        
+
+
+Kernel settings
+--------------------------------------------------------------------------------------------------------------------------------------------
+Weight of radial descriptors in the kernel (the angular counterpart is chosen so that the sum is 1.0) :   1.00000E-01     ML_W1                   
+Power of the polynomial kernel                                                                        :             4     ML_NHYP                 
+Specifies whether super-vector is used for kernel or not                                              :             T     ML_LSUPERVEC            
+
+
+Bayesian error estimation
+--------------------------------------------------------------------------------------------------------------------------------------------
+Enable automatic updating of the Bayesian error estimation threshold during on-the-fly training       :             1     ML_ICRITERIA            
+Decides whether update of threshold is done in the same MD step or the next MD step                   :             1     ML_IUPDATE_CRITERIA     
+Bayesian error estimation threshold (initial or static value depending on other settings)             :   2.00000E-03     ML_CTIFOR               
+Scaling factor for ML_CTIFOR. The interval 0<ML_SCLC_CTIFOR<1 increases num. of local configurations  :   6.00000E-01     ML_SCLC_CTIFOR          
+Standard error parameter required for the automatic update of the Bayesian error estimation threshold :   4.00000E-01     ML_CSIG                 
+Slope parameter required for the automatic update of the Bayesian error estimation threshold          :   2.00000E-01     ML_CSLOPE               
+Additional parameter controlling the update of the Bayesian error estimation threshold                :   0.00000E+00     ML_CX                   
+Factor controlling the occurence of enforced first principle calculations                             :   2.00000E+00     ML_CDOUB                
+
+
+Sparsification and regression
+--------------------------------------------------------------------------------------------------------------------------------------------
+Threshold for the CUR algorithm used in the sparsification of local reference configurations          :   1.00000E-09     ML_EPS_LOW              
+Convergence criterion for the optimization of parameters within the Bayesian linear regression        :   1.00000E-15     ML_EPS_REG              
+If ML_MB is exceeded do not stop but instead discard older local reference configurations             :             T     ML_LBASIS_DISCARD       
+Linear regression algorithm                                                                           :             1     ML_IALGO_LINREG         
+Leverage scoring calculation mode (for sparsification of local configurations)                        :             1     ML_ISVD                 
+Time dependency of regularization parameters                                                          :             2     ML_IREG                 
+Initial regularization parameter (noise, reversed and squared)                                        :   1.00000E+00     ML_SIGV0                
+Initial regularization parameter (precision, reversed and squared)                                    :   1.00000E+00     ML_SIGW0                
+
+
+Weighting and sampling
+--------------------------------------------------------------------------------------------------------------------------------------------
+Scaling weight for total energies in the training data                                                :   1.00000E+00     ML_WTOTEN               
+Scaling weight for forces in the training data                                                        :   1.00000E+00     ML_WTIFOR               
+Scaling weight for stresses in the training data                                                      :   1.00000E-10     ML_WTSIF                
+Number of estimated errors stored to determine the threshold for the Bayesian error                   :            10     ML_MHIS                 
+Minimum number of MD steps between potential training samples                                         :            10     ML_NMDINT               
+Weighting method for energies, forces and stresses                                                    :             3     ML_IWEIGHT              
+Use also structure names for distinction into groups for weighting                                    :             F     ML_LUSE_NAMES           
+
+
+Static array sizes
+--------------------------------------------------------------------------------------------------------------------------------------------
+Maximum number of local reference configurations of the ML force field                                :           222 (!) ML_MB                   
+Maximum number of local reference configurations in memory (max. buffer size before sparsification)   :           222
+Maximum number of structures stored for training                                                      :             1     ML_MCONF                
+Maximum number of configurations stored temporarily as training candidates                            :             5     ML_MCONF_NEW            
+
+
+Special features
+--------------------------------------------------------------------------------------------------------------------------------------------
+Enable heat flux calculation (output written to ML_HEAT)                                              :             F     ML_LHEAT                
+Enable thermodynamic integration (t.i.)                                                               :             F     ML_LCOUPLE              
+Number of atoms whose interaction is controlled by the t.i. coupling parameter                        :             0     ML_NATOM_COUPLED        
+List of atoms whose interaction is controlled by the t.i. coupling parameter                          :             0     SIZE( ML_ICOUPLE )
+Thermodynamic integration coupling parameter                                                          :   1.00000E+00     ML_RCOUPLE              
+
+
+Reference energies
+--------------------------------------------------------------------------------------------------------------------------------------------
+Scaling mode of energies                                                                              :             2     ML_ISCALE_TOTEN         
+List of reference energies of isolated atoms for each species in the system                           :             2     SIZE( ML_EATOM_REF )
+                                                                                           Element C  :   0.00000E+00     ML_EATOM_REF(1)
+                                                                                           Element H  :   0.00000E+00     ML_EATOM_REF(2)
+
+
+Output options
+--------------------------------------------------------------------------------------------------------------------------------------------
+Enable output of kin. and pot. energy for each atom at each MD time step (written to ML_EATOM)        :             F     ML_LEATOM               
+
+********************************************************************************************************************************************
+
+
+* ML_FF INPUT FILE INFORMATION *************************************************************************************************************
+
+ML_FF file version                              : 0.2.1
+ML_FF file mode                                 : binary
+ML_FF header present                            : T
+RMSE energies (eV atom^-1)                      :   1.21810903E-03
+RMSE forces (eV Angst^-1)                       :   7.04378612E-02
+RMSE stresses (kB)                              :   1.66042158E+02
+Number of atom types                            : 2
+Atom types                                      :            C            H
+Atomic reference energies                       :   0.0000E+00   0.0000E+00
+Number of local reference configurations        :          221           45
+Number of descriptors                           :          476          476
+
+********************************************************************************************************************************************
+
+
+* MAIN LOOP ********************************************************************************************************************************
+
+# STATUS ###############################################################
+# STATUS This line describes the overall status of each step.
+# STATUS 
+# STATUS nstep ..... MD time step or input structure counter
+# STATUS state ..... One-word description of step action
+# STATUS             - "accurate"  (1) : Errors are low, force field is used
+# STATUS             - "threshold" (2) : Errors exceeded threshold, structure is sampled from ab initio
+# STATUS             - "learning"  (3) : Stored configurations are used for training force field
+# STATUS             - "critical"  (4) : Errors are high, ab initio sampling and learning is enforced
+# STATUS             - "predict"   (5) : Force field is used in prediction mode only, no error checking
+# STATUS             - "predfast"  (6) : Prediction mode only, no error checking, no error estimates
+# STATUS             - "interval"  (7) : Errors exceeded threshold, but too close to last sampling (ML_NMDINT)
+# STATUS is ........ Integer representation of above one-word description (integer in parenthesis)
+# STATUS doabin .... Perform ab initio calculation (T/F)
+# STATUS iff ....... Force field available (T/F, False after startup hints to possible convergence problems)
+# STATUS nsample ... Number of steps since last reference structure collection (sample = T)
+# STATUS ngenff .... Number of steps since last force field generation (genff = T)
+# STATUS ###############################################################
+# STATUS            nstep     state is doabin    iff   nsample    ngenff
+# STATUS                2         3  4      5      6         7         8
+# STATUS ###############################################################
+
+# STDAB ####################################################################
+# STDAB This line contains the standard deviation of the collected ab initio reference data.
+# STDAB 
+# STDAB nstep ........ MD time step or input structure counter
+# STDAB std_energy ... Standard deviation in energy (eV atom^-1)
+# STDAB std_force .... Standard deviation in forces (eV Angst^-1)
+# STDAB std_stress ... Standard deviation in stress (kB)
+# STDAB ####################################################################
+# STDAB             nstep       std_energy        std_force       std_stress
+# STDAB                 2                3                4                5
+# STDAB ####################################################################
+
+# ERR ######################################################################
+# ERR This line contains the RMSEs of the predictions with respect to ab initio results for the training data.
+# ERR 
+# ERR nstep ......... MD time step or input structure counter
+# ERR rmse_energy ... RMSE of energies (eV atom^-1)
+# ERR rmse_force .... RMSE of forces (eV Angst^-1)
+# ERR rmse_stress ... RMSE of stress (kB)
+# ERR ######################################################################
+# ERR               nstep      rmse_energy       rmse_force      rmse_stress
+# ERR                   2                3                4                5
+# ERR ######################################################################
+
+# LASTE ####################################################################
+# LASTE This line contains the RMSEs of the predictions with respect to ab initio results for the last configuration in the training data.
+# LASTE 
+# LASTE nstep ......... MD time step or input structure counter
+# LASTE last_energy ... RMSE of energy for last configuration (eV atom^-1)
+# LASTE last_force .... RMSE of forces for last configuration (eV Angst^-1)
+# LASTE last_stress ... RMSE of stress for last configuration (kB)
+# LASTE ####################################################################
+# LASTE             nstep      last_energy       last_force      last_stress
+# LASTE                 2                3                4                5
+# LASTE ####################################################################
+
+# CFE ######################################################################
+# CFE This line contains errors on forces with respect to ab initio results for the current structure.
+# CFE 
+# CFE nstep .......... MD time step or input structure counter
+# CFE cur_for_mae .... Mean absolute error of forces (eV Angst^-1)
+# CFE cur_for_rmse ... Root mean square error of forces (eV Angst^-1)
+# CFE cur_for_maxe ... Maximum error of forces (eV Angst^-1)
+# CFE ######################################################################
+# CFE               nstep      cur_for_mae     cur_for_rmse     cur_for_maxe
+# CFE                   2                3                4                5
+# CFE ######################################################################
+
+# THRHIST #####################################
+# THRHIST This line contains the last ML_MHIS entries of the Bayesian errors of the forces for training structures.
+# THRHIST Entries are listed from newest to oldest, i.e. the most recent addition is listed first.
+# THRHIST 
+# THRHIST nstep ... MD time step or input structure counter
+# THRHIST nhis .... Number of the Bayesian error of the force in the history
+# THRHIST behis ... Bayesian error of the force (eV Angst^-1)
+# THRHIST #####################################
+# THRHIST           nstep nhis            behis
+# THRHIST               2    3                4
+# THRHIST #####################################
+
+# THRUPD ####################################################################################
+# THRUPD This line contains the new and old threshold for the maximum Bayesian error of forces.
+# THRUPD 
+# THRUPD nstep ......... MD time step or input structure counter
+# THRUPD ctifor_prev ... Previous threshold for the maximum Bayesian error of forces (eV Angst^-1)
+# THRUPD ctifor_new .... New threshold for the maximum Bayesian error of forces (eV Angst^-1)
+# THRUPD std_sig ....... Standard deviation of the collected Bayesion errors of forces (eV Angst^-1)
+# THRUPD slope_sig ..... Slope of the collected Bayesian errors of forces
+# THRUPD ####################################################################################
+# THRUPD            nstep      ctifor_prev       ctifor_new          std_sig        slope_sig
+# THRUPD                2                3                4                5                6
+# THRUPD ####################################################################################
+
+# REGR ################################################################################################
+# REGR This line contains results for each step of linear regression before the last step.
+# REGR 
+# REGR nstep ......... MD time step or input structure counter
+# REGR linreg ........ Linear regression method (ML_IALGO_LINREG)
+# REGR ite ........... Number of iteration
+# REGR sigma_w_sqr ... Square of sigma_w (precision parameter) in evidence approximation
+# REGR sigma_v_sqr ... Square of sigma_v (noise parameter) in evidence approximation
+# REGR regratio ...... Ratio between (sigma_v_sqr/sigma_w_sqr) and the highest eigenvalue (wmax)
+# REGR error.......... 0.5 times squared norm of vector containing combined errors of force field
+# REGR ################################################################################################
+# REGR              nstep linr  ite      sigma_w_sqr      sigma_v_sqr         regratio            error
+# REGR                  2    3    4                5                6                7                8
+# REGR ################################################################################################
+
+# REGRF #################################################################################################################################
+# REGRF This line contains results of the last step of linear regression.
+# REGRF 
+# REGRF nstep ......... MD time step or input structure counter
+# REGRF linreg ........ Linear regression method (ML_IALGO_LINREG)
+# REGRF ite ........... Number of iteration
+# REGRF sigma_w_sqr ... Square of sigma_w (precision parameter) in evidence approximation
+# REGRF sigma_v_sqr ... Square of sigma_v (noise parameter) in evidence approximation
+# REGRF regratio ...... Ratio between (sigma_v_sqr/sigma_w_sqr) and the highest eigenvalue (wmax)
+# REGRF error.......... 0.5 times squared norm of vector containing combined errors of force field
+# REGRF wratio ........ Ratio between the highest (wmax) and lowest (wmin) eigenvalue/singular value (wmax/wmin)
+# REGRF wmax .......... Highest eigenvalue/singular value (wmax)
+# REGRF #################################################################################################################################
+# REGRF             nstep linr  ite      sigma_w_sqr      sigma_v_sqr         regratio            error           wratio             wmax
+# REGRF                 2    3    4                5                6                7                8                9               10
+# REGRF #################################################################################################################################
+
+# BEE #########################################################################################################################
+# BEE This line shows the Bayesian error estimations and the current threshold criterion,
+# BEE immediately before re-training the force field.
+# BEE 
+# BEE nstep ............ MD time step or input structure counter
+# BEE bee_energy ....... BEE of energy per atom (eV atom^-1)
+# BEE bee_max_force .... BEE of forces (max) (eV Angst^-1)
+# BEE bee_ave_force .... BEE of forces (average) (kB)
+# BEE threshold ........ Current value of threshold criterion (eV Angst^-1)
+# BEE bee_max_stress ... BEE of stresses (max) (kB)
+# BEE bee_ave_stress ... BEE of stresses (average) (kB)
+# BEE #########################################################################################################################
+# BEE               nstep       bee_energy    bee_max_force    bee_ave_force        threshold   bee_max_stress   bee_ave_stress
+# BEE                   2                3                4                5                6                7                8
+# BEE #########################################################################################################################
+
+# BEEF ########################################################################################################################
+# BEEF This line shows the Bayesian error estimations and the current threshold criterion.
+# BEEF 
+# BEEF nstep ............ MD time step or input structure counter
+# BEEF bee_energy ....... BEE of energy per atom (eV atom^-1)
+# BEEF bee_max_force .... BEE of forces (max) (eV Angst^-1)
+# BEEF bee_ave_force .... BEE of forces (average) (kB)
+# BEEF threshold ........ Current value of threshold criterion (eV Angst^-1)
+# BEEF bee_max_stress ... BEE of stresses (max) (kB)
+# BEEF bee_ave_stress ... BEE of stresses (average) (kB)
+# BEEF ########################################################################################################################
+# BEEF              nstep       bee_energy    bee_max_force    bee_ave_force        threshold   bee_max_stress   bee_ave_stress
+# BEEF                  2                3                4                5                6                7                8
+# BEEF ########################################################################################################################
+
+# DCOUPLE ################################
+# DCOUPLE This line shows the derivative of the Hamiltonian with respect to coupling constant (dH/dlambda).
+# DCOUPLE 
+# DCOUPLE nstep .......... MD time step or input structure counter
+# DCOUPLE der_H_lambda ... dH/dlambda
+# DCOUPLE ################################
+# DCOUPLE           nstep     der_H_lambda
+# DCOUPLE               2                3
+# DCOUPLE ################################
+
+# FFOUT #########################################
+# FFOUT This line shows the date and time of creation of the ML_FFN file.
+# FFOUT The same string is written to the header of the ML_FFN file, which
+# FFOUT simplifies the task of identifying later which ML_LOGFILE belongs
+# FFOUT to which ML_FF(N).
+# FFOUT 
+# FFOUT nstep ............... MD time step or input structure counter
+# FFOUT creation_datetime ... Date and time of ML_FFN creation
+# FFOUT #########################################
+# FFOUT             nstep       creation_datetime
+# FFOUT                 2                       3
+# FFOUT #########################################
+
+# LCONF ###############################################################
+# LCONF This line shows the number of local configurations
+# LCONF which were sampled from ab initio reference calculations.
+# LCONF 
+# LCONF nstep ...... MD time step or input structure counter
+# LCONF el ......... Element symbol
+# LCONF nlrc_old ... Previous number of local reference configurations for this element
+# LCONF nlrc_new ... Current number of local reference configurations for this element
+# LCONF ###############################################################
+# LCONF             nstep el  nlrc_old  nlrc_new el  nlrc_old  nlrc_new
+# LCONF                 2  3         4         5  6         7         8
+# LCONF ###############################################################
+
+# SPRSC #######################################################################################################
+# SPRSC This line shows the results of sparsification regarding the number
+# SPRSC of reference structures and local reference configurations.
+# SPRSC 
+# SPRSC nstep ....... MD time step or input structure counter
+# SPRSC nstr_prev ... Number of reference structures before sparsification
+# SPRSC nstr_spar ... Number of reference structures after sparsification
+# SPRSC el .......... Element symbol
+# SPRSC nlrc_prev ... Number of local reference configurations before sparsification for this element
+# SPRSC nlrc_spar ... Number of local reference configurations after sparsification for this element
+# SPRSC #######################################################################################################
+# SPRSC             nstep nstr_prev nstr_spar el nlrc_prev nlrc_spar nstr_prev nstr_spar el nlrc_prev nlrc_spar
+# SPRSC                 2  3         4         5         6         7  8         9        10        11        12
+# SPRSC #######################################################################################################
+
+# NDESC #####################################################
+# NDESC This line shows the number of radial descripotrs 
+# NDESC and the number of angular descriptors for each element.
+# NDESC 
+# NDESC nstep ....... MD time step or input structure counter
+# NDESC descrad ..... Number of radial descriptors
+# NDESC el .......... Element symbol
+# NDESC descang ..... Number of angular descriptors for a given element type
+# NDESC #####################################################
+# NDESC             nstep   descrad el   descang el   descang
+# NDESC                 2         3  4         5  6         7
+# NDESC #####################################################
+
+********************************************************************************************************************************************
+# NDESC_SIC #######################################
+# NDESC_SIC This line shows the number of self-interaction  
+# NDESC_SIC correction (SIC) terms for the angular descriptor.
+# NDESC_SIC 
+# NDESC_SIC nstep ....... MD time step or input structure counter
+# NDESC_SIC el .......... Element symbol
+# NDESC_SIC descsic ..... Number of SIC descriptors for a given element type
+# NDESC_SIC #######################################
+# NDESC_SIC         nstep el   descsic el   descsic
+# NDESC_SIC             2  3         4  5         6
+# NDESC_SIC #######################################
+
+********************************************************************************************************************************************
+--------------------------------------------------------------------------------
+STATUS                  0 predict    5      T      T         0         0
+--------------------------------------------------------------------------------
+STATUS                  1 predict    5      F      T         1         1
+--------------------------------------------------------------------------------
+STATUS                  2 predict    5      F      T         2         2
+--------------------------------------------------------------------------------
+STATUS                  3 predict    5      F      T         3         3
+--------------------------------------------------------------------------------
+STATUS                  4 predict    5      F      T         4         4
+--------------------------------------------------------------------------------
+STATUS                  5 predict    5      F      T         5         5
+--------------------------------------------------------------------------------
+STATUS                  6 predict    5      F      T         6         6
+--------------------------------------------------------------------------------
+STATUS                  7 predict    5      F      T         7         7
+--------------------------------------------------------------------------------
+STATUS                  8 predict    5      F      T         8         8
+--------------------------------------------------------------------------------
+STATUS                  9 predict    5      F      T         9         9
+--------------------------------------------------------------------------------
+STATUS                 10 predict    5      F      T        10        10
+--------------------------------------------------------------------------------
+STATUS                 11 predict    5      F      T        11        11
+--------------------------------------------------------------------------------
+STATUS                 12 predict    5      F      T        12        12
+--------------------------------------------------------------------------------
+STATUS                 13 predict    5      F      T        13        13
+--------------------------------------------------------------------------------
+STATUS                 14 predict    5      F      T        14        14
+--------------------------------------------------------------------------------
+STATUS                 15 predict    5      F      T        15        15
+--------------------------------------------------------------------------------
+STATUS                 16 predict    5      F      T        16        16
+--------------------------------------------------------------------------------
+STATUS                 17 predict    5      F      T        17        17
+--------------------------------------------------------------------------------
+STATUS                 18 predict    5      F      T        18        18
+--------------------------------------------------------------------------------
+STATUS                 19 predict    5      F      T        19        19
+--------------------------------------------------------------------------------
+STATUS                 20 predict    5      F      T        20        20
+--------------------------------------------------------------------------------
+STATUS                 21 predict    5      F      T        21        21
+--------------------------------------------------------------------------------
+STATUS                 22 predict    5      F      T        22        22
+--------------------------------------------------------------------------------
+STATUS                 23 predict    5      F      T        23        23
+--------------------------------------------------------------------------------
+STATUS                 24 predict    5      F      T        24        24
+--------------------------------------------------------------------------------
+STATUS                 25 predict    5      F      T        25        25
+--------------------------------------------------------------------------------
+STATUS                 26 predict    5      F      T        26        26
+--------------------------------------------------------------------------------
+STATUS                 27 predict    5      F      T        27        27
+--------------------------------------------------------------------------------
+STATUS                 28 predict    5      F      T        28        28
+--------------------------------------------------------------------------------
+STATUS                 29 predict    5      F      T        29        29
+--------------------------------------------------------------------------------
+STATUS                 30 predict    5      F      T        30        30
+--------------------------------------------------------------------------------
+STATUS                 31 predict    5      F      T        31        31
+--------------------------------------------------------------------------------
+STATUS                 32 predict    5      F      T        32        32
+--------------------------------------------------------------------------------
+STATUS                 33 predict    5      F      T        33        33
+--------------------------------------------------------------------------------
+STATUS                 34 predict    5      F      T        34        34
+--------------------------------------------------------------------------------
+STATUS                 35 predict    5      F      T        35        35
+--------------------------------------------------------------------------------
+STATUS                 36 predict    5      F      T        36        36
+--------------------------------------------------------------------------------
+STATUS                 37 predict    5      F      T        37        37
+--------------------------------------------------------------------------------
+STATUS                 38 predict    5      F      T        38        38
+--------------------------------------------------------------------------------
+STATUS                 39 predict    5      F      T        39        39
+--------------------------------------------------------------------------------
+STATUS                 40 predict    5      F      T        40        40
+--------------------------------------------------------------------------------
+STATUS                 41 predict    5      F      T        41        41
+--------------------------------------------------------------------------------
+STATUS                 42 predict    5      F      T        42        42
+--------------------------------------------------------------------------------
+STATUS                 43 predict    5      F      T        43        43
+--------------------------------------------------------------------------------
+STATUS                 44 predict    5      F      T        44        44
+--------------------------------------------------------------------------------
+STATUS                 45 predict    5      F      T        45        45
+--------------------------------------------------------------------------------
+STATUS                 46 predict    5      F      T        46        46
+--------------------------------------------------------------------------------
+STATUS                 47 predict    5      F      T        47        47
+--------------------------------------------------------------------------------
+STATUS                 48 predict    5      F      T        48        48
+--------------------------------------------------------------------------------
+STATUS                 49 predict    5      F      T        49        49
+--------------------------------------------------------------------------------
+STATUS                 50 predict    5      F      T        50        50
+--------------------------------------------------------------------------------
+STATUS                 51 predict    5      F      T        51        51
+--------------------------------------------------------------------------------
+STATUS                 52 predict    5      F      T        52        52
+--------------------------------------------------------------------------------
+STATUS                 53 predict    5      F      T        53        53
+--------------------------------------------------------------------------------
+STATUS                 54 predict    5      F      T        54        54
+--------------------------------------------------------------------------------
+STATUS                 55 predict    5      F      T        55        55
+--------------------------------------------------------------------------------
+STATUS                 56 predict    5      F      T        56        56
+--------------------------------------------------------------------------------
+STATUS                 57 predict    5      F      T        57        57
+--------------------------------------------------------------------------------
+STATUS                 58 predict    5      F      T        58        58
+--------------------------------------------------------------------------------
+STATUS                 59 predict    5      F      T        59        59
+--------------------------------------------------------------------------------
+STATUS                 60 predict    5      F      T        60        60
+--------------------------------------------------------------------------------
+STATUS                 61 predict    5      F      T        61        61
+--------------------------------------------------------------------------------
+STATUS                 62 predict    5      F      T        62        62
+--------------------------------------------------------------------------------
+STATUS                 63 predict    5      F      T        63        63
+--------------------------------------------------------------------------------
+STATUS                 64 predict    5      F      T        64        64
+--------------------------------------------------------------------------------
+STATUS                 65 predict    5      F      T        65        65
+--------------------------------------------------------------------------------
+STATUS                 66 predict    5      F      T        66        66
+--------------------------------------------------------------------------------
+STATUS                 67 predict    5      F      T        67        67
+--------------------------------------------------------------------------------
+STATUS                 68 predict    5      F      T        68        68
+--------------------------------------------------------------------------------
+STATUS                 69 predict    5      F      T        69        69
+--------------------------------------------------------------------------------
+STATUS                 70 predict    5      F      T        70        70
+--------------------------------------------------------------------------------
+STATUS                 71 predict    5      F      T        71        71
+--------------------------------------------------------------------------------
+STATUS                 72 predict    5      F      T        72        72
+--------------------------------------------------------------------------------
+STATUS                 73 predict    5      F      T        73        73
+--------------------------------------------------------------------------------
+STATUS                 74 predict    5      F      T        74        74
+--------------------------------------------------------------------------------
+STATUS                 75 predict    5      F      T        75        75
+--------------------------------------------------------------------------------
+STATUS                 76 predict    5      F      T        76        76
+--------------------------------------------------------------------------------
+STATUS                 77 predict    5      F      T        77        77
+--------------------------------------------------------------------------------
+STATUS                 78 predict    5      F      T        78        78
+--------------------------------------------------------------------------------
+STATUS                 79 predict    5      F      T        79        79
+--------------------------------------------------------------------------------
+STATUS                 80 predict    5      F      T        80        80
+--------------------------------------------------------------------------------
+STATUS                 81 predict    5      F      T        81        81
+--------------------------------------------------------------------------------
+STATUS                 82 predict    5      F      T        82        82
+--------------------------------------------------------------------------------
+STATUS                 83 predict    5      F      T        83        83
+--------------------------------------------------------------------------------
+STATUS                 84 predict    5      F      T        84        84
+--------------------------------------------------------------------------------
+STATUS                 85 predict    5      F      T        85        85
+--------------------------------------------------------------------------------
+STATUS                 86 predict    5      F      T        86        86
+--------------------------------------------------------------------------------
+STATUS                 87 predict    5      F      T        87        87
+--------------------------------------------------------------------------------
+STATUS                 88 predict    5      F      T        88        88
+--------------------------------------------------------------------------------
+STATUS                 89 predict    5      F      T        89        89
+--------------------------------------------------------------------------------
+STATUS                 90 predict    5      F      T        90        90
+--------------------------------------------------------------------------------
+STATUS                 91 predict    5      F      T        91        91
+--------------------------------------------------------------------------------
+STATUS                 92 predict    5      F      T        92        92
+--------------------------------------------------------------------------------
+STATUS                 93 predict    5      F      T        93        93
+--------------------------------------------------------------------------------
+STATUS                 94 predict    5      F      T        94        94
+--------------------------------------------------------------------------------
+STATUS                 95 predict    5      F      T        95        95
+--------------------------------------------------------------------------------
+STATUS                 96 predict    5      F      T        96        96
+--------------------------------------------------------------------------------
+STATUS                 97 predict    5      F      T        97        97
+--------------------------------------------------------------------------------
+STATUS                 98 predict    5      F      T        98        98
+--------------------------------------------------------------------------------
+STATUS                 99 predict    5      F      T        99        99
+--------------------------------------------------------------------------------
+STATUS                100 predict    5      F      T       100       100
+--------------------------------------------------------------------------------
+STATUS                101 predict    5      F      T       101       101
+--------------------------------------------------------------------------------
+STATUS                102 predict    5      F      T       102       102
+--------------------------------------------------------------------------------
+STATUS                103 predict    5      F      T       103       103
+--------------------------------------------------------------------------------
+STATUS                104 predict    5      F      T       104       104
+--------------------------------------------------------------------------------
+STATUS                105 predict    5      F      T       105       105
+--------------------------------------------------------------------------------
+STATUS                106 predict    5      F      T       106       106
+--------------------------------------------------------------------------------
+STATUS                107 predict    5      F      T       107       107
+--------------------------------------------------------------------------------
+STATUS                108 predict    5      F      T       108       108
+--------------------------------------------------------------------------------
+STATUS                109 predict    5      F      T       109       109
+--------------------------------------------------------------------------------
+STATUS                110 predict    5      F      T       110       110
+--------------------------------------------------------------------------------
+STATUS                111 predict    5      F      T       111       111
+--------------------------------------------------------------------------------
+STATUS                112 predict    5      F      T       112       112
+--------------------------------------------------------------------------------
+STATUS                113 predict    5      F      T       113       113
+--------------------------------------------------------------------------------
+STATUS                114 predict    5      F      T       114       114
+--------------------------------------------------------------------------------
+STATUS                115 predict    5      F      T       115       115
+--------------------------------------------------------------------------------
+STATUS                116 predict    5      F      T       116       116
+--------------------------------------------------------------------------------
+STATUS                117 predict    5      F      T       117       117
+--------------------------------------------------------------------------------
+STATUS                118 predict    5      F      T       118       118
+--------------------------------------------------------------------------------
+STATUS                119 predict    5      F      T       119       119
+--------------------------------------------------------------------------------
+STATUS                120 predict    5      F      T       120       120
+--------------------------------------------------------------------------------
+STATUS                121 predict    5      F      T       121       121
+--------------------------------------------------------------------------------
+STATUS                122 predict    5      F      T       122       122
+--------------------------------------------------------------------------------
+STATUS                123 predict    5      F      T       123       123
+--------------------------------------------------------------------------------
+STATUS                124 predict    5      F      T       124       124
+--------------------------------------------------------------------------------
+STATUS                125 predict    5      F      T       125       125
+--------------------------------------------------------------------------------
+STATUS                126 predict    5      F      T       126       126
+--------------------------------------------------------------------------------
+STATUS                127 predict    5      F      T       127       127
+--------------------------------------------------------------------------------
+STATUS                128 predict    5      F      T       128       128
+--------------------------------------------------------------------------------
+STATUS                129 predict    5      F      T       129       129
+--------------------------------------------------------------------------------
+STATUS                130 predict    5      F      T       130       130
+--------------------------------------------------------------------------------
+STATUS                131 predict    5      F      T       131       131
+--------------------------------------------------------------------------------
+STATUS                132 predict    5      F      T       132       132
+--------------------------------------------------------------------------------
+STATUS                133 predict    5      F      T       133       133
+--------------------------------------------------------------------------------
+STATUS                134 predict    5      F      T       134       134
+--------------------------------------------------------------------------------
+STATUS                135 predict    5      F      T       135       135
+--------------------------------------------------------------------------------
+STATUS                136 predict    5      F      T       136       136
+--------------------------------------------------------------------------------
+STATUS                137 predict    5      F      T       137       137
+--------------------------------------------------------------------------------
+STATUS                138 predict    5      F      T       138       138
+--------------------------------------------------------------------------------
+STATUS                139 predict    5      F      T       139       139
+--------------------------------------------------------------------------------
+STATUS                140 predict    5      F      T       140       140
+--------------------------------------------------------------------------------
+STATUS                141 predict    5      F      T       141       141
+--------------------------------------------------------------------------------
+STATUS                142 predict    5      F      T       142       142
+--------------------------------------------------------------------------------
+STATUS                143 predict    5      F      T       143       143
+--------------------------------------------------------------------------------
+STATUS                144 predict    5      F      T       144       144
+--------------------------------------------------------------------------------
+STATUS                145 predict    5      F      T       145       145
+--------------------------------------------------------------------------------
+STATUS                146 predict    5      F      T       146       146
+--------------------------------------------------------------------------------
+STATUS                147 predict    5      F      T       147       147
+--------------------------------------------------------------------------------
+STATUS                148 predict    5      F      T       148       148
+--------------------------------------------------------------------------------
+STATUS                149 predict    5      F      T       149       149
+--------------------------------------------------------------------------------
+STATUS                150 predict    5      F      T       150       150
+--------------------------------------------------------------------------------
+STATUS                151 predict    5      F      T       151       151
+--------------------------------------------------------------------------------
+STATUS                152 predict    5      F      T       152       152
+--------------------------------------------------------------------------------
+STATUS                153 predict    5      F      T       153       153
+--------------------------------------------------------------------------------
+STATUS                154 predict    5      F      T       154       154
+--------------------------------------------------------------------------------
+STATUS                155 predict    5      F      T       155       155
+--------------------------------------------------------------------------------
+STATUS                156 predict    5      F      T       156       156
+--------------------------------------------------------------------------------
+STATUS                157 predict    5      F      T       157       157
+--------------------------------------------------------------------------------
+STATUS                158 predict    5      F      T       158       158
+--------------------------------------------------------------------------------
+STATUS                159 predict    5      F      T       159       159
+--------------------------------------------------------------------------------
+STATUS                160 predict    5      F      T       160       160
+--------------------------------------------------------------------------------
+STATUS                161 predict    5      F      T       161       161
+--------------------------------------------------------------------------------
+STATUS                162 predict    5      F      T       162       162
+--------------------------------------------------------------------------------
+STATUS                163 predict    5      F      T       163       163
+--------------------------------------------------------------------------------
+STATUS                164 predict    5      F      T       164       164
+--------------------------------------------------------------------------------
+STATUS                165 predict    5      F      T       165       165
+--------------------------------------------------------------------------------
+STATUS                166 predict    5      F      T       166       166
+--------------------------------------------------------------------------------
+STATUS                167 predict    5      F      T       167       167
+--------------------------------------------------------------------------------
+STATUS                168 predict    5      F      T       168       168
+--------------------------------------------------------------------------------
+STATUS                169 predict    5      F      T       169       169
+--------------------------------------------------------------------------------
+STATUS                170 predict    5      F      T       170       170
+--------------------------------------------------------------------------------
+STATUS                171 predict    5      F      T       171       171
+--------------------------------------------------------------------------------
+STATUS                172 predict    5      F      T       172       172
+--------------------------------------------------------------------------------
+STATUS                173 predict    5      F      T       173       173
+--------------------------------------------------------------------------------
+STATUS                174 predict    5      F      T       174       174
+--------------------------------------------------------------------------------
+STATUS                175 predict    5      F      T       175       175
+--------------------------------------------------------------------------------
+STATUS                176 predict    5      F      T       176       176
+--------------------------------------------------------------------------------
+STATUS                177 predict    5      F      T       177       177
+--------------------------------------------------------------------------------
+STATUS                178 predict    5      F      T       178       178
+--------------------------------------------------------------------------------
+STATUS                179 predict    5      F      T       179       179
+--------------------------------------------------------------------------------
+STATUS                180 predict    5      F      T       180       180
+--------------------------------------------------------------------------------
+STATUS                181 predict    5      F      T       181       181
+--------------------------------------------------------------------------------
+STATUS                182 predict    5      F      T       182       182
+--------------------------------------------------------------------------------
+STATUS                183 predict    5      F      T       183       183
+--------------------------------------------------------------------------------
+STATUS                184 predict    5      F      T       184       184
+--------------------------------------------------------------------------------
+STATUS                185 predict    5      F      T       185       185
+--------------------------------------------------------------------------------
+STATUS                186 predict    5      F      T       186       186
+--------------------------------------------------------------------------------
+STATUS                187 predict    5      F      T       187       187
+--------------------------------------------------------------------------------
+STATUS                188 predict    5      F      T       188       188
+--------------------------------------------------------------------------------
+STATUS                189 predict    5      F      T       189       189
+--------------------------------------------------------------------------------
+STATUS                190 predict    5      F      T       190       190
+--------------------------------------------------------------------------------
+STATUS                191 predict    5      F      T       191       191
+--------------------------------------------------------------------------------
+STATUS                192 predict    5      F      T       192       192
+--------------------------------------------------------------------------------
+STATUS                193 predict    5      F      T       193       193
+--------------------------------------------------------------------------------
+STATUS                194 predict    5      F      T       194       194
+--------------------------------------------------------------------------------
+STATUS                195 predict    5      F      T       195       195
+--------------------------------------------------------------------------------
+STATUS                196 predict    5      F      T       196       196
+--------------------------------------------------------------------------------
+STATUS                197 predict    5      F      T       197       197
+--------------------------------------------------------------------------------
+STATUS                198 predict    5      F      T       198       198
+--------------------------------------------------------------------------------
+STATUS                199 predict    5      F      T       199       199
+--------------------------------------------------------------------------------
+STATUS                200 predict    5      F      T       200       200
+--------------------------------------------------------------------------------
+STATUS                201 predict    5      F      T       201       201
+--------------------------------------------------------------------------------
+STATUS                202 predict    5      F      T       202       202
+--------------------------------------------------------------------------------
+STATUS                203 predict    5      F      T       203       203
+--------------------------------------------------------------------------------
+STATUS                204 predict    5      F      T       204       204
+--------------------------------------------------------------------------------
+STATUS                205 predict    5      F      T       205       205
+--------------------------------------------------------------------------------
+STATUS                206 predict    5      F      T       206       206
+--------------------------------------------------------------------------------
+STATUS                207 predict    5      F      T       207       207
+--------------------------------------------------------------------------------
+STATUS                208 predict    5      F      T       208       208
+--------------------------------------------------------------------------------
+STATUS                209 predict    5      F      T       209       209
+--------------------------------------------------------------------------------
+STATUS                210 predict    5      F      T       210       210
+--------------------------------------------------------------------------------
+STATUS                211 predict    5      F      T       211       211
+--------------------------------------------------------------------------------
+STATUS                212 predict    5      F      T       212       212
+--------------------------------------------------------------------------------
+STATUS                213 predict    5      F      T       213       213
+--------------------------------------------------------------------------------
+STATUS                214 predict    5      F      T       214       214
+--------------------------------------------------------------------------------
+STATUS                215 predict    5      F      T       215       215
+--------------------------------------------------------------------------------
+STATUS                216 predict    5      F      T       216       216
+--------------------------------------------------------------------------------
+STATUS                217 predict    5      F      T       217       217
+--------------------------------------------------------------------------------
+STATUS                218 predict    5      F      T       218       218
+--------------------------------------------------------------------------------
+STATUS                219 predict    5      F      T       219       219
+--------------------------------------------------------------------------------
+STATUS                220 predict    5      F      T       220       220
+--------------------------------------------------------------------------------
+STATUS                221 predict    5      F      T       221       221
+--------------------------------------------------------------------------------
+STATUS                222 predict    5      F      T       222       222
+--------------------------------------------------------------------------------
+STATUS                223 predict    5      F      T       223       223
+--------------------------------------------------------------------------------
+STATUS                224 predict    5      F      T       224       224
+--------------------------------------------------------------------------------
+STATUS                225 predict    5      F      T       225       225
+--------------------------------------------------------------------------------
+STATUS                226 predict    5      F      T       226       226
+--------------------------------------------------------------------------------
+STATUS                227 predict    5      F      T       227       227
+--------------------------------------------------------------------------------
+STATUS                228 predict    5      F      T       228       228
+--------------------------------------------------------------------------------
+STATUS                229 predict    5      F      T       229       229
+--------------------------------------------------------------------------------
+STATUS                230 predict    5      F      T       230       230
+--------------------------------------------------------------------------------
+STATUS                231 predict    5      F      T       231       231
+--------------------------------------------------------------------------------
+STATUS                232 predict    5      F      T       232       232
+--------------------------------------------------------------------------------
+STATUS                233 predict    5      F      T       233       233
+--------------------------------------------------------------------------------
+STATUS                234 predict    5      F      T       234       234
+--------------------------------------------------------------------------------
+STATUS                235 predict    5      F      T       235       235
+--------------------------------------------------------------------------------
+STATUS                236 predict    5      F      T       236       236
+--------------------------------------------------------------------------------
+STATUS                237 predict    5      F      T       237       237
+--------------------------------------------------------------------------------
+STATUS                238 predict    5      F      T       238       238
+--------------------------------------------------------------------------------
+STATUS                239 predict    5      F      T       239       239
+--------------------------------------------------------------------------------
+STATUS                240 predict    5      F      T       240       240
+--------------------------------------------------------------------------------
+STATUS                241 predict    5      F      T       241       241
+--------------------------------------------------------------------------------
+STATUS                242 predict    5      F      T       242       242
+--------------------------------------------------------------------------------
+STATUS                243 predict    5      F      T       243       243
+--------------------------------------------------------------------------------
+STATUS                244 predict    5      F      T       244       244
+--------------------------------------------------------------------------------
+STATUS                245 predict    5      F      T       245       245
+--------------------------------------------------------------------------------
+STATUS                246 predict    5      F      T       246       246
+--------------------------------------------------------------------------------
+STATUS                247 predict    5      F      T       247       247
+--------------------------------------------------------------------------------
+STATUS                248 predict    5      F      T       248       248
+--------------------------------------------------------------------------------
+STATUS                249 predict    5      F      T       249       249
+--------------------------------------------------------------------------------
+STATUS                250 predict    5      F      T       250       250
+--------------------------------------------------------------------------------
+STATUS                251 predict    5      F      T       251       251
+--------------------------------------------------------------------------------
+STATUS                252 predict    5      F      T       252       252
+--------------------------------------------------------------------------------
+STATUS                253 predict    5      F      T       253       253
+--------------------------------------------------------------------------------
+STATUS                254 predict    5      F      T       254       254
+--------------------------------------------------------------------------------
+STATUS                255 predict    5      F      T       255       255
+--------------------------------------------------------------------------------
+STATUS                256 predict    5      F      T       256       256
+--------------------------------------------------------------------------------
+STATUS                257 predict    5      F      T       257       257
+--------------------------------------------------------------------------------
+STATUS                258 predict    5      F      T       258       258
+--------------------------------------------------------------------------------
+STATUS                259 predict    5      F      T       259       259
+--------------------------------------------------------------------------------
+STATUS                260 predict    5      F      T       260       260
+--------------------------------------------------------------------------------
+STATUS                261 predict    5      F      T       261       261
+--------------------------------------------------------------------------------
+STATUS                262 predict    5      F      T       262       262
+--------------------------------------------------------------------------------
+STATUS                263 predict    5      F      T       263       263
+--------------------------------------------------------------------------------
+STATUS                264 predict    5      F      T       264       264
+--------------------------------------------------------------------------------
+STATUS                265 predict    5      F      T       265       265
+--------------------------------------------------------------------------------
+STATUS                266 predict    5      F      T       266       266
+--------------------------------------------------------------------------------
+STATUS                267 predict    5      F      T       267       267
+--------------------------------------------------------------------------------
+STATUS                268 predict    5      F      T       268       268
+--------------------------------------------------------------------------------
+STATUS                269 predict    5      F      T       269       269
+--------------------------------------------------------------------------------
+STATUS                270 predict    5      F      T       270       270
+--------------------------------------------------------------------------------
+STATUS                271 predict    5      F      T       271       271
+--------------------------------------------------------------------------------
+STATUS                272 predict    5      F      T       272       272
+--------------------------------------------------------------------------------
+STATUS                273 predict    5      F      T       273       273
+--------------------------------------------------------------------------------
+STATUS                274 predict    5      F      T       274       274
+--------------------------------------------------------------------------------
+STATUS                275 predict    5      F      T       275       275
+--------------------------------------------------------------------------------
+STATUS                276 predict    5      F      T       276       276
+--------------------------------------------------------------------------------
+STATUS                277 predict    5      F      T       277       277
+--------------------------------------------------------------------------------
+STATUS                278 predict    5      F      T       278       278
+--------------------------------------------------------------------------------
+STATUS                279 predict    5      F      T       279       279
+--------------------------------------------------------------------------------
+STATUS                280 predict    5      F      T       280       280
+--------------------------------------------------------------------------------
+STATUS                281 predict    5      F      T       281       281
+--------------------------------------------------------------------------------
+STATUS                282 predict    5      F      T       282       282
+--------------------------------------------------------------------------------
+STATUS                283 predict    5      F      T       283       283
+--------------------------------------------------------------------------------
+STATUS                284 predict    5      F      T       284       284
+--------------------------------------------------------------------------------
+STATUS                285 predict    5      F      T       285       285
+--------------------------------------------------------------------------------
+STATUS                286 predict    5      F      T       286       286
+--------------------------------------------------------------------------------
+STATUS                287 predict    5      F      T       287       287
+--------------------------------------------------------------------------------
+STATUS                288 predict    5      F      T       288       288
+--------------------------------------------------------------------------------
+STATUS                289 predict    5      F      T       289       289
+--------------------------------------------------------------------------------
+STATUS                290 predict    5      F      T       290       290
+--------------------------------------------------------------------------------
+STATUS                291 predict    5      F      T       291       291
+--------------------------------------------------------------------------------
+STATUS                292 predict    5      F      T       292       292
+--------------------------------------------------------------------------------
+STATUS                293 predict    5      F      T       293       293
+--------------------------------------------------------------------------------
+STATUS                294 predict    5      F      T       294       294
+--------------------------------------------------------------------------------
+STATUS                295 predict    5      F      T       295       295
+--------------------------------------------------------------------------------
+STATUS                296 predict    5      F      T       296       296
+--------------------------------------------------------------------------------
+STATUS                297 predict    5      F      T       297       297
+--------------------------------------------------------------------------------
+STATUS                298 predict    5      F      T       298       298
+--------------------------------------------------------------------------------
+STATUS                299 predict    5      F      T       299       299
+--------------------------------------------------------------------------------
+STATUS                300 predict    5      F      T       300       300
+
+
+* MEMORY INFORMATION ***********************************************************************************************************************
+
+Actual memory consumption for ML force field generation (MB):
+
+Persistent allocations for force field        :     18.2
+|
+|-- CMAT for basis                            :      1.8
+|-- FMAT for basis                            :      0.0
+|-- DESC for basis                            :      3.5
+|-- DESC product matrix                       :      0.1
+
+Persistent allocations for ab initio data     :      0.0
+|
+|-- Ab initio data                            :      0.0
+|-- Ab initio data (new)                      :      0.0
+
+Temporary allocations for sparsification      :      0.0
+|
+|-- SVD matrices                              :      0.0
+
+Other temporary allocations                   :     10.2
+|
+|-- Descriptors                               :      0.2
+|-- Regression                                :      0.0
+|-- Prediction                                :     10.0
+
+Total memory consumption                      :     28.4
+
+********************************************************************************************************************************************
+
+
+* TIMING INFORMATION ***********************************************************************************************************************
+
+Program part                                         system clock (sec)       cpu time (sec)
+---------------------------------------------------|--------------------|-------------------
+Setup (file I/O, parameters,...)                   |              0.322 |              0.322
+Descriptor and design matrix                       |              0.000 |              0.000
+Sparsification of configurations                   |              0.000 |              0.000
+Regression                                         |              0.000 |              0.000
+Prediction                                         |             18.528 |             18.525
+---------------------------------------------------|--------------------|-------------------
+TOTAL                                              |             18.850 |             18.847
+
+********************************************************************************************************************************************

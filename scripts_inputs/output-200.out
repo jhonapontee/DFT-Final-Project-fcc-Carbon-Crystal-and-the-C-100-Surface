@@ -1,0 +1,27 @@
+ running    4 mpi-ranks, with    1 threads/rank, on    1 nodes
+ distrk:  each k-point on    4 cores,    1 groups
+ distr:  one band on    1 cores,    4 groups
+ vasp.6.4.2 20Jul23 (build Oct 18 2023 12:49:41) complex                         
+ POSCAR found :  1 types and       2 ions
+ Reading from existing POTCAR
+ scaLAPACK will be used
+ Reading from existing POTCAR
+ LDA part: xc-table for Pade appr. of Perdew
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ... GRIDC
+ FFT: planning ... GRID_SOFT
+ FFT: planning ... GRID
+ WAVECAR not read
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.124614640737E+02   -0.12461E+02   -0.27998E+03   288   0.437E+02
+DAV:   2    -0.181004145272E+02   -0.56390E+01   -0.56394E+01   352   0.553E+01
+DAV:   3    -0.181172142806E+02   -0.16800E-01   -0.16800E-01   296   0.328E+00
+DAV:   4    -0.181172264419E+02   -0.12161E-04   -0.12161E-04   344   0.708E-02
+DAV:   5    -0.181172264501E+02   -0.81340E-08   -0.81340E-08   216   0.819E-04    0.524E+00
+DAV:   6    -0.179129251696E+02    0.20430E+00   -0.11976E-01   280   0.261E+00    0.306E+00
+DAV:   7    -0.178235943726E+02    0.89331E-01   -0.16735E-01   296   0.320E+00    0.267E-01
+DAV:   8    -0.178239182725E+02   -0.32390E-03   -0.91870E-04   288   0.275E-01    0.483E-02
+DAV:   9    -0.178239503311E+02   -0.32059E-04   -0.97592E-05   280   0.733E-02
+   1 F= -.17823950E+02 E0= -.17823950E+02  d E =0.000000E+00
+ writing wavefunctions

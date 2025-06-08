@@ -1,0 +1,3 @@
+#%%%%%%%%%% PARALLELIZATION %%%%%%%%%%%%%%%%%%%%%%%
+NCORE=1 ! cores per procesor
+NSIM=4 ! 

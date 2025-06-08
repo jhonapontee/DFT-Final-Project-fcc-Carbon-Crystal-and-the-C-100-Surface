@@ -1,0 +1,27 @@
+SYSTEM = C100
+ISYM   = 0        ! no symmetry imposed
+
+#%%%%%%%%%% DIPOLE CORRECTIONS %%%%%%%%%%%%%%%%%%%%%%%
+IDIPOL=3 ! 3 is for surfaces
+LDIPOL=.TRUE.
+
+#%%%%% NVT Molecular dynamics
+ IBRION = 0                   # choose molecular dynamics
+ MDALGO = 2                   # using Langevin thermostat
+ ISIF = 2                     # compute stress tensor but do not change box volume/shape
+ TEEND = 0.1
+ NSW = 300                  # number of time steps
+ POTIM = 1.5                  # time step in femto seconds
+ SMASS = 1.0                  # setting the virtual mass for the Nose-Hoover thermostat
+ NBLOCK = 10                 # after NBLOCK ionic steps configuration written to XDATCAR
+
+#%%%%%%%% ML check file ML_FF %%%%%%%%%%%%%%%%
+ML_LMLFF  = T
+ML_MODE = run
+
+RANDOM_SEED =         688344966                0                0
+
+
+#%%%%%%%%%% PARALLELIZATION %%%%%%%%%%%%%%%%%%%%%%%
+NCORE=1 ! cores per procesor
+NSIM=4  ! 

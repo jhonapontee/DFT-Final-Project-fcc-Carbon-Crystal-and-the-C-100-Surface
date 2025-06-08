@@ -1,0 +1,19 @@
+SYSTEM = fcc silicon
+ISYM=0
+
+EDIFF  = 1e-6
+
+! ionic relaxation
+IBRION = 2        ! ionic relaxation (conjugate gradient algorithm)
+NSW    = 300        ! no of ionic steps
+ISIF   = 2        ! update positions
+EDIFFG = -0.025
+
+
+! machine learning
+ML_LMLFF  = T
+ML_ISTART = 2
+
+RANDOM_SEED =         688344966                0                0
+
+

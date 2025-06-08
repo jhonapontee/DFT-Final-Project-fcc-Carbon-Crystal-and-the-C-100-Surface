@@ -1,0 +1,40 @@
+ running    8 mpi-ranks, with    1 threads/rank, on    1 nodes
+ distrk:  each k-point on    8 cores,    1 groups
+ distr:  one band on    1 cores,    8 groups
+ vasp.6.4.2 20Jul23 (build Oct 18 2023 12:49:41) complex                         
+ POSCAR found type information on POSCAR C H 
+ POSCAR found :  2 types and      28 ions
+ Reading from existing POTCAR
+ scaLAPACK will be used
+ Reading from existing POTCAR
+ LDA part: xc-table for Pade appr. of Perdew
+ found WAVECAR, reading the header
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ... GRIDC
+ FFT: planning ... GRID_SOFT
+ FFT: planning ... GRID
+ reading WAVECAR
+ the WAVECAR file was read successfully
+Calculating partial charge density.
+NDMOD =  -3
+Energy range vs. Fermi energy from INCAR:    2.500   0.000
+Efermi =    0.697
+No KPOINTS given: use all of them.
+
+*****************************************************
+* Parameters from pardens
+*****************************************************
+
+NBMOD is set to  -3
+Selected energy range (EINT)    0.6967   3.1967
+Selected all k-points to calculate charge density.
+k-point no.    1; bands inside the range    3
+  45  46  47
+k-point no.    2; bands inside the range    3
+  45  46  47
+k-point no.    3; bands inside the range    3
+  45  46  47
+k-point no.    4; bands inside the range    3
+  45  46  47
+Finished calculating partial charge density.
+VASP will stop now.

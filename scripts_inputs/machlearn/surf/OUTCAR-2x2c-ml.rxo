@@ -1,0 +1,2317 @@
+ vasp.6.4.2 20Jul23 (build Oct 18 2023 12:49:41) complex                         
+ executed on             LinuxGNU date 2025.06.06  15:02:16
+ running    6 mpi-ranks, with    1 threads/rank, on    1 nodes
+ distrk:  each k-point on    6 cores,    1 groups
+ distr:  one band on NCORE=   1 cores,    6 groups
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+ INCAR:
+   SYSTEM = fcc silicon
+   ISYM = 0
+   EDIFF = 1e-6
+   IBRION = 2
+   NSW = 300
+   ISIF = 2
+   EDIFFG = -0.025
+   ML_LMLFF = T
+   ML_ISTART = 2
+   RANDOM_SEED = 688344966                0                0
+   NCORE = 1
+   NSIM = 4
+
+ POTCAR:    PAW_PBE C 08Apr2002                   
+ POTCAR:    PAW_PBE C 08Apr2002                   
+   SHA256 =  253f7b50bb8d59471dbedb8285d89021f4a42ed1a2c5d38a03a736e69125dd95 C/POTCAR              
+   COPYR  = (c) Copyright 08Apr2002 Georg Kresse                                                    
+   COPYR  = This file is part of the software VASP. Any use, copying, and all other rights are regul
+   COPYR  = If you do not have a valid VASP license, you may not use, copy or distribute this file. 
+   VRHFIN =C: s2p2                                                                                  
+   LEXCH  = PE                                                                                      
+   EATOM  =   147.1560 eV,   10.8157 Ry                                                             
+                                                                                                    
+   TITEL  = PAW_PBE C 08Apr2002                                                                     
+   LULTRA =        F    use ultrasoft PP ?                                                          
+   IUNSCR =        1    unscreen: 0-lin 1-nonlin 2-no                                               
+   RPACOR =    1.200    partial core radius                                                         
+   POMASS =   12.011; ZVAL   =    4.000    mass and valenz                                          
+   RCORE  =    1.500    outmost cutoff radius                                                       
+   RWIGS  =    1.630; RWIGS  =    0.863    wigner-seitz radius (au A)                               
+   ENMAX  =  400.000; ENMIN  =  300.000 eV                                                          
+   ICORE  =        2    local potential                                                             
+   LCOR   =        T    correct aug charges                                                         
+   LPAW   =        T    paw PP                                                                      
+   EAUG   =  644.873                                                                                
+   DEXC   =    0.000                                                                                
+   RMAX   =    1.529    core radius for proj-oper                                                   
+   RAUG   =    1.300    factor for augmentation sphere                                              
+   RDEP   =    1.501    radius for radial grids                                                     
+   RDEPT  =    1.300    core radius for aug-charge                                                  
+                                                                                                    
+   Atomic configuration                                                                             
+    4 entries                                                                                       
+     n  l   j            E        occ.                                                              
+     1  0  0.50      -273.3789   2.0000                                                             
+     2  0  0.50       -13.7508   2.0000                                                             
+     2  1  0.50        -5.2854   2.0000                                                             
+     3  2  1.50        -5.4423   0.0000                                                             
+   Description                                                                                      
+     l       E           TYP  RCUT    TYP  RCUT                                                     
+     0    -13.7508458     23  1.200                                                                 
+     0     -8.2022199     23  1.200                                                                 
+     1     -5.2854383     23  1.500                                                                 
+     1     34.0145650     23  1.500                                                                 
+     2     -5.4423304      7  1.500                                                                 
+  local pseudopotential read in
+  partial core-charges read in
+  partial kinetic energy density read in
+  atomic valenz-charges read in
+  non local Contribution for L=           0  read in
+    real space projection operators read in
+  non local Contribution for L=           0  read in
+    real space projection operators read in
+  non local Contribution for L=           1  read in
+    real space projection operators read in
+  non local Contribution for L=           1  read in
+    real space projection operators read in
+    PAW grid and wavefunctions read in
+
+   number of l-projection  operators is LMAX  =           4
+   number of lm-projection operators is LMMAX =           8
+
+ -----------------------------------------------------------------------------
+|                                                                             |
+|               ----> ADVICE to this user running VASP <----                  |
+|                                                                             |
+|     You have a (more or less) 'large supercell' and for larger cells it     |
+|     might be more efficient to use real-space projection operators.         |
+|     Therefore, try LREAL= Auto in the INCAR file.                           |
+|     Mind: For very accurate calculation, you might also keep the            |
+|     reciprocal projection scheme (i.e. LREAL=.FALSE.).                      |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+  PAW_PBE C 08Apr2002                   :
+ energy of atom  1       EATOM= -147.1560
+ kinetic energy error for atom=-2089.0381 (will be added to EATOM!!)
+
+
+ POSCAR:  C
+  positions in cartesian coordinates
+  No initial velocities read in
+ exchange correlation table for  LEXCH =        8
+   RHO(1)=    0.500       N(1)  =     2000
+   RHO(2)=  100.500       N(2)  =     4000
+
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+ ion  position               nearest neighbor table
+   1  0.000  0.000  0.191-   4 1.55  14 1.55  10 1.55   5 1.55
+   2  0.250  0.250  0.069-   4 1.55   9 1.55
+   3  0.250  0.329  0.314-   5 1.60  15 1.60   8 1.73
+   4  0.250  0.000  0.130-   1 1.55   2 1.55   7 1.55  11 1.55
+   5  0.000  0.250  0.252-   1 1.55   6 1.55   3 1.60  13 1.60
+   6  0.000  0.500  0.191-   9 1.55  19 1.55  10 1.55   5 1.55
+   7  0.250  0.750  0.069-   4 1.55   9 1.55
+   8  0.250  0.671  0.314-  10 1.60  20 1.60   3 1.73
+   9  0.250  0.500  0.130-   2 1.55   6 1.55   7 1.55  16 1.55
+  10  0.000  0.750  0.252-   1 1.55   6 1.55   8 1.60  18 1.60
+  11  0.500  0.000  0.191-   4 1.55  14 1.55  15 1.55  20 1.55
+  12  0.750  0.250  0.069-  14 1.55  19 1.55
+  13  0.750  0.329  0.314-   5 1.60  15 1.60  18 1.73
+  14  0.750  0.000  0.130-   1 1.55  11 1.55  12 1.55  17 1.55
+  15  0.500  0.250  0.252-  11 1.55  16 1.55  13 1.60   3 1.60
+  16  0.500  0.500  0.191-   9 1.55  19 1.55  15 1.55  20 1.55
+  17  0.750  0.750  0.069-  14 1.55  19 1.55
+  18  0.750  0.671  0.314-  10 1.60  20 1.60  13 1.73
+  19  0.750  0.500  0.130-   6 1.55  12 1.55  16 1.55  17 1.55
+  20  0.500  0.750  0.252-  11 1.55  16 1.55   8 1.60  18 1.60
+
+
+IMPORTANT INFORMATION: All symmetrisations will be switched off!
+NOSYMM: (Re-)initialisation of all symmetry stuff for point group C_1.
+
+
+----------------------------------------------------------------------------------------
+
+                                     Primitive cell                                     
+
+  volume of cell :     372.0231
+
+  direct lattice vectors                    reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+  position of ions in fractional coordinates (direct lattice)
+     0.000000000  0.000000000  0.191200000
+     0.250000000  0.250000000  0.068620000
+     0.250000000  0.329167161  0.313790000
+     0.250000000  0.000000000  0.129910000
+     0.000000000  0.250000000  0.252500000
+     0.000000000  0.500000000  0.191200000
+     0.250000000  0.750000000  0.068620000
+     0.250000000  0.670832839  0.313790000
+     0.250000000  0.500000000  0.129910000
+     0.000000000  0.750000000  0.252500000
+     0.500000000  0.000000000  0.191200000
+     0.750000000  0.250000000  0.068620000
+     0.750000000  0.329167161  0.313790000
+     0.750000000  0.000000000  0.129910000
+     0.500000000  0.250000000  0.252500000
+     0.500000000  0.500000000  0.191200000
+     0.750000000  0.750000000  0.068620000
+     0.750000000  0.670832839  0.313790000
+     0.750000000  0.500000000  0.129910000
+     0.500000000  0.750000000  0.252500000
+
+  ion indices of the primitive-cell ions
+   primitive index   ion index
+                 1           1
+                 2           2
+                 3           3
+                 4           4
+                 5           5
+                 6           6
+                 7           7
+                 8           8
+                 9           9
+                10          10
+                11          11
+                12          12
+                13          13
+                14          14
+                15          15
+                16          16
+                17          17
+                18          18
+                19          19
+                20          20
+
+----------------------------------------------------------------------------------------
+
+
+
+ KPOINTS: C fcc         # System label            
+
+Automatic generation of k-mesh.
+ Grid dimensions read from file:
+ generate k-points for:    2    2    1
+
+ Generating k-lattice:
+
+  Cartesian coordinates                     Fractional coordinates (reciprocal lattice)
+     0.098958952  0.000000000  0.000000000     0.500000000  0.000000000  0.000000000
+     0.000000000  0.098958952  0.000000000     0.000000000  0.500000000  0.000000000
+     0.000000000  0.000000000  0.068621463     0.000000000  0.000000000  1.000000000
+
+  Length of vectors
+     0.098958952  0.098958952  0.068621463
+
+  Shift w.r.t. Gamma in fractional coordinates (k-lattice)
+     0.000000000  0.000000000  0.000000000
+
+ 
+ Subroutine IBZKPT returns following result:
+ ===========================================
+ 
+ Found      4 irreducible k-points:
+ 
+ Following reciprocal coordinates:
+            Coordinates               Weight
+  0.000000  0.000000  0.000000      1.000000
+  0.500000  0.000000  0.000000      1.000000
+  0.000000  0.500000  0.000000      1.000000
+  0.500000  0.500000  0.000000      1.000000
+ 
+ Following cartesian coordinates:
+            Coordinates               Weight
+  0.000000  0.000000  0.000000      1.000000
+  0.098959  0.000000  0.000000      1.000000
+  0.000000  0.098959  0.000000      1.000000
+  0.098959  0.098959  0.000000      1.000000
+ 
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+ Dimension of arrays:
+   k-points           NKPTS =      4   k-points in BZ     NKDIM =      4   number of bands    NBANDS=     54
+   number of dos      NEDOS =    301   number of ions     NIONS =     20
+   non local maximal  LDIM  =      4   non local SUM 2l+1 LMDIM =      8
+   total plane-waves  NPLWV =      8
+   max r-space proj   IRMAX =      1   max aug-charges    IRDMAX=    200
+   dimension x,y,z NGX =     2 NGY =    2 NGZ =    2
+   dimension x,y,z NGXF=     2 NGYF=    2 NGZF=    2
+   support grid    NGXF=     2 NGYF=    2 NGZF=    2
+   ions per type =              20
+   NGX,Y,Z   is equivalent  to a cutoff of   0.66,  0.66,  0.23 a.u.
+   NGXF,Y,Z  is equivalent  to a cutoff of   0.66,  0.66,  0.23 a.u.
+
+ Based on PREC, I would recommend the following setting:
+   dimension x,y,z NGX =     2 NGY =    2 NGZ =    4
+
+ -----------------------------------------------------------------------------
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|     Your FFT grids (NGX,NGY,NGZ) are not sufficient for an accurate         |
+|     calculation. Thus, the results might be wrong. Good settings for        |
+|     NGX, NGY and NGZ are 2, 2 and 4, respectively.                          |
+|     Mind: This setting results in a small but reasonable wrap-around        |
+|     error. It is also necessary to adjust these values to the FFT           |
+|     routines you use.                                                       |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+ SYSTEM =  fcc silicon                             
+ POSCAR =   C                                      
+
+ Startparameter for this run:
+   NWRITE =      2    write-flag & timer
+   PREC   = normal    normal or accurate (medium, high low for compatibility)
+   ISTART =      0    job   : 0-new  1-cont  2-samecut
+   ICHARG =      2    charge: 1-file 2-atom 10-const
+   ISPIN  =      1    spin polarized calculation?
+   LNONCOLLINEAR =      F non collinear calculations
+   LSORBIT =      F    spin-orbit coupling
+   INIWAV =      1    electr: 0-lowe 1-rand  2-diag
+   LASPH  =      F    aspherical Exc in radial PAW
+ Electronic Relaxation 1
+   ENCUT  =    1.0 eV   0.07 Ry    0.27 a.u.   0.41  0.41  1.19*2*pi/ulx,y,z
+   ENINI  =    1.0     initial cutoff
+   ENAUG  =  644.9 eV  augmentation charge cutoff
+   NELM   =     60;   NELMIN=  2; NELMDL= -5     # of ELM steps 
+   EDIFF  = 0.1E-05   stopping-criterion for ELM
+   LREAL  =      F    real-space projection
+   NLSPLINE    = F    spline interpolate recip. space projectors
+   LCOMPAT=      F    compatible to vasp.4.4
+   GGA_COMPAT  = T    GGA compatible to vasp.4.4-vasp.4.6
+   LMAXPAW     = -100 max onsite density
+   LMAXMIX     =    2 max onsite mixed and CHGCAR
+   VOSKOWN=      0    Vosko Wilk Nusair interpolation
+   ROPT   =    0.00000
+ Ionic relaxation
+   EDIFFG = -.3E-01   stopping-criterion for IOM
+   NSW    =    300    number of steps for IOM
+   NBLOCK =      1;   KBLOCK =    300    inner block; outer block 
+   IBRION =      2    ionic relax: 0-MD 1-quasi-New 2-CG
+   NFREE  =      1    steps in history (QN), initial steepest desc. (CG)
+   ISIF   =      2    stress and relaxation
+   IWAVPR =     11    prediction:  0-non 1-charg 2-wave 3-comb
+   ISYM   =      0    0-nonsym 1-usesym 2-fastsym
+   LCORR  =      T    Harris-Foulkes like correction to forces
+
+   POTIM  = 0.5000    time-step for ionic-motion
+   TEIN   =    0.0    initial temperature
+   TEBEG  =    0.0;   TEEND  =   0.0 temperature during run
+   SMASS  =  -3.00    Nose mass-parameter (am)
+   estimated Nose-frequenzy (Omega)   =  0.10E-29 period in steps = 0.13E+47 mass=  -0.583E-27a.u.
+   SCALEE = 1.0000    scale energy and forces
+   NPACO  =    256;   APACO  = 10.0  distance and # of slots for P.C.
+   PSTRESS=    0.0 pullay stress
+
+  Mass of Ions in am
+   POMASS =  12.01
+  Ionic Valenz
+   ZVAL   =   4.00
+  Atomic Wigner-Seitz radii
+   RWIGS  =  -1.00
+  virtual crystal weights 
+   VCA    =   1.00
+   NELECT =      80.0000    total number of electrons
+   NUPDOWN=      -1.0000    fix difference up-down
+
+ DOS related values:
+   EMIN   =  10.00;   EMAX   =-10.00  energy-range for DOS
+   EFERMI =   0.00;   METHOD = LEGACY      
+   ISMEAR =     1;   SIGMA  =   0.20  broadening in eV -4-tet -1-fermi 0-gaus
+
+ Electronic relaxation 2 (details)
+   IALGO  =     38    algorithm
+   LDIAG  =      T    sub-space diagonalisation (order eigenvalues)
+   LSUBROT=      F    optimize rotation matrix (better conditioning)
+   TURBO    =      0    0=normal 1=particle mesh
+   IRESTART =      0    0=no restart 2=restart with 2 vectors
+   NREBOOT  =      0    no. of reboots
+   NMIN     =      0    reboot dimension
+   EREF     =   0.00    reference energy to select bands
+   IMIX   =      4    mixing-type and parameters
+     AMIX     =   0.40;   BMIX     =  1.00
+     AMIX_MAG =   1.60;   BMIX_MAG =  1.00
+     AMIN     =   0.10
+     WC   =   100.;   INIMIX=   1;  MIXPRE=   1;  MAXMIX= -45
+
+ Intra band minimization:
+   WEIMIN = 0.0010     energy-eigenvalue tresh-hold
+   EBREAK =  0.46E-08  absolut break condition
+   DEPER  =   0.30     relativ break condition  
+
+   TIME   =   0.40     timestep for ELM
+
+  volume/ion in A,a.u.               =      18.60       125.53
+  Fermi-wavevector in a.u.,A,eV,Ry     =   0.980802  1.853448 13.088443  0.961973
+  Thomas-Fermi vector in A             =   2.111761
+
+ Write flags
+   LWAVE        =      T    write WAVECAR
+   LDOWNSAMPLE  =      F    k-point downsampling of WAVECAR
+   LCHARG       =      T    write CHGCAR
+   LVTOT        =      F    write LOCPOT, total local potential
+   LVHAR        =      F    write LOCPOT, Hartree potential only
+   LELF         =      F    write electronic localiz. function (ELF)
+   LORBIT       =      0    0 simple, 1 ext, 2 COOP (PROOUT), +10 PAW based schemes
+
+
+ Dipole corrections
+   LMONO  =      F    monopole corrections only (constant potential shift)
+   LDIPOL =      F    correct potential (dipole corrections)
+   IDIPOL =      0    1-x, 2-y, 3-z, 4-all directions 
+   EPSILON=  1.0000000 bulk dielectric constant
+
+ Exchange correlation treatment:
+   GGA     =    --    GGA type
+   LEXCH   =     8    internal setting for exchange type
+   LIBXC   =     F    Libxc                    
+   VOSKOWN =     0    Vosko Wilk Nusair interpolation
+   LHFCALC =     F    Hartree Fock is set to
+   LHFONE  =     F    Hartree Fock one center treatment
+   AEXX    =    0.0000 exact exchange contribution
+
+ Linear response parameters
+   LEPSILON=     F    determine dielectric tensor
+   LRPA    =     F    only Hartree local field effects (RPA)
+   LNABLA  =     F    use nabla operator in PAW spheres
+   LVEL    =     F    velocity operator in full k-point grid
+   CSHIFT  =0.1000    complex shift for real part using Kramers Kronig
+   OMEGAMAX=  -1.0    maximum frequency
+   DEG_THRESHOLD= 0.2000000E-02 threshold for treating states as degnerate
+   RTIME   =   -0.100 relaxation time in fs
+  (WPLASMAI=    0.000 imaginary part of plasma frequency in eV, 0.658/RTIME)
+   DFIELD  = 0.0000000 0.0000000 0.0000000 field for delta impulse in time
+
+  Optional k-point grid parameters
+   LKPOINTS_OPT  =     F    use optional k-point grid
+   KPOINTS_OPT_MODE=     1    mode for optional k-point grid
+
+ Orbital magnetization related:
+   ORBITALMAG=     F  switch on orbital magnetization
+   LCHIMAG   =     F  perturbation theory with respect to B field
+   DQ        =  0.001000  dq finite difference perturbation B field
+   LLRAUG    =     F  two centre corrections for induced B field
+   LBONE     =     F  B-component reconstruction in AE one-centre
+   LVGVCALC  =     T  calculate vGv susceptibility
+   LVGVAPPL  =     F  apply vGv susceptibility instead of pGv for G=0
+
+ Random number generation:
+   RANDOM_GENERATOR = DEFAULT
+   PCG_SEED         = not used
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+ conjugate gradient relaxation of ions
+   using selective dynamics as specified on POSCAR
+   WARNING: If single coordinates had been selected the selection of coordinates
+            is made according to the corresponding   d i r e c t   coordinates!
+            Don't support selection of single cartesian coordinates -- sorry ... !
+ charge density and potential will be updated during run
+ non-spin polarized calculation
+ Variant of blocked Davidson
+ Davidson routine will perform the subspace rotation
+ perform sub-space diagonalisation
+    after iterative eigenvector-optimisation
+ modified Broyden-mixing scheme, WC =      100.0
+ initial mixing is a Kerker type mixing with AMIX =  0.4000 and BMIX =      1.0000
+ Hartree-type preconditioning will be used
+ using additional bands           14
+ reciprocal scheme for non local part
+ use partial core corrections
+ calculate Harris-corrections to forces   (improved forces if not selfconsistent)
+ use gradient corrections 
+ use of overlap-Matrix (Vanderbilt PP)
+ Methfessel and Paxton  Order N= 1 SIGMA  =   0.20
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+  energy-cutoff  :        1.00
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+
+ k-points in units of 2pi/SCALE and weight: C fcc         # System label            
+   0.00000000  0.00000000  0.00000000       0.250
+   0.09895895  0.00000000  0.00000000       0.250
+   0.00000000  0.09895895  0.00000000       0.250
+   0.09895895  0.09895895  0.00000000       0.250
+
+ k-points in reciprocal lattice and weights: C fcc         # System label            
+   0.00000000  0.00000000  0.00000000       0.250
+   0.50000000  0.00000000  0.00000000       0.250
+   0.00000000  0.50000000  0.00000000       0.250
+   0.50000000  0.50000000  0.00000000       0.250
+
+ position of ions in fractional coordinates (direct lattice) 
+   0.00000000  0.00000000  0.19120000
+   0.25000000  0.25000000  0.06862000
+   0.25000000  0.32916716  0.31379000
+   0.25000000  0.00000000  0.12991000
+   0.00000000  0.25000000  0.25250000
+   0.00000000  0.50000000  0.19120000
+   0.25000000  0.75000000  0.06862000
+   0.25000000  0.67083284  0.31379000
+   0.25000000  0.50000000  0.12991000
+   0.00000000  0.75000000  0.25250000
+   0.50000000  0.00000000  0.19120000
+   0.75000000  0.25000000  0.06862000
+   0.75000000  0.32916716  0.31379000
+   0.75000000  0.00000000  0.12991000
+   0.50000000  0.25000000  0.25250000
+   0.50000000  0.50000000  0.19120000
+   0.75000000  0.75000000  0.06862000
+   0.75000000  0.67083284  0.31379000
+   0.75000000  0.50000000  0.12991000
+   0.50000000  0.75000000  0.25250000
+
+ position of ions in cartesian coordinates  (Angst):
+   0.00000000  0.00000000  2.78630024
+   1.26315000  1.26315000  0.99997867
+   1.26315000  1.66315000  4.57276753
+   1.26315000  0.00000000  1.89313946
+   0.00000000  1.26315000  3.67960675
+   0.00000000  2.52630000  2.78630024
+   1.26315000  3.78945000  0.99997867
+   1.26315000  3.38945000  4.57276753
+   1.26315000  2.52630000  1.89313946
+   0.00000000  3.78945000  3.67960675
+   2.52630000  0.00000000  2.78630024
+   3.78945000  1.26315000  0.99997867
+   3.78945000  1.66315000  4.57276753
+   3.78945000  0.00000000  1.89313946
+   2.52630000  1.26315000  3.67960675
+   2.52630000  2.52630000  2.78630024
+   3.78945000  3.78945000  0.99997867
+   3.78945000  3.38945000  4.57276753
+   3.78945000  2.52630000  1.89313946
+   2.52630000  3.78945000  3.67960675
+
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+ k-point   1 :   0.0000 0.0000 0.0000  plane waves:       2
+ k-point   2 :   0.5000 0.0000 0.0000  plane waves:       0
+ k-point   3 :   0.0000 0.5000 0.0000  plane waves:       0
+ k-point   4 :   0.5000 0.5000 0.0000  plane waves:       0
+
+ maximum and minimum number of plane-waves per node :         2        0
+
+ maximum number of plane-waves:         2
+ maximum index in each direction: 
+   IXMAX=    0   IYMAX=    0   IZMAX=    1
+   IXMIN=    0   IYMIN=    0   IZMIN=    0
+
+
+
+--------------------------------------- Ionic step        1  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -33.34815   -87.46697   -47.70348    -0.00000     0.00000    -0.00000
+  in kB    -143.61919  -376.69063  -205.44272    -0.00000     0.00000    -0.00000
+  external pressure =     -241.92 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =   -241.92 kB
+  Total+kin.  -143.619    -376.691    -205.443      -0.000       0.000      -0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+      0.00000      0.00000      2.78630        -0.000000     -0.000000      2.715276
+      1.26315      1.26315      0.99998        -0.000000     -0.338956      0.759021
+      1.26315      1.66315      4.57277        -0.000000     -0.791060     -4.427059
+      1.26315      0.00000      1.89314        -0.000000     -0.000000      1.877521
+      0.00000      1.26315      3.67961         0.000000      6.942917      0.001770
+      0.00000      2.52630      2.78630         0.000000     -0.000000     -1.345384
+      1.26315      3.78945      0.99998        -0.000000      0.338956      0.759021
+      1.26315      3.38945      4.57277        -0.000000      0.791060     -4.427059
+      1.26315      2.52630      1.89314        -0.000000     -0.000000      4.085121
+      0.00000      3.78945      3.67961         0.000000     -6.942917      0.001770
+      2.52630      0.00000      2.78630         0.000000     -0.000000      2.715276
+      3.78945      1.26315      0.99998        -0.000000     -0.338956      0.759021
+      3.78945      1.66315      4.57277         0.000000     -0.791060     -4.427059
+      3.78945      0.00000      1.89314         0.000000      0.000000      1.877521
+      2.52630      1.26315      3.67961        -0.000000      6.942917      0.001770
+      2.52630      2.52630      2.78630        -0.000000      0.000000     -1.345384
+      3.78945      3.78945      0.99998         0.000000      0.338956      0.759021
+      3.78945      3.38945      4.57277         0.000000      0.791060     -4.427059
+      3.78945      2.52630      1.89314         0.000000     -0.000000      4.085121
+      2.52630      3.78945      3.67961        -0.000000     -6.942917      0.001770
+ -----------------------------------------------------------------------------------
+    total drift:                                0.000000      0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -142.87665503 eV
+
+  ML energy  without entropy=     -142.87665503  ML energy(sigma->0) =     -142.87665503
+
+      MLFF:  cpu time      0.0083: real time      0.0083
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step        2  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -19.97759   -27.07840     1.00037     0.00000    -0.00000     0.00000
+  in kB     -86.03669  -116.61750     4.30824     0.00000    -0.00000     0.00000
+  external pressure =      -66.12 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -66.12 kB
+  Total+kin.   -86.037    -116.618       4.308       0.000      -0.000       0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+     -0.00000     -0.00000      2.91729         0.000000      0.000000     -1.235740
+      1.26315      1.26315      0.99998         0.000000     -1.024767      1.127504
+      1.26315      1.62499      4.35919        -0.000000      5.566515      3.036130
+      1.26315     -0.00000      1.98372        -0.000000      0.000000      1.434331
+      0.00000      1.59809      3.67969         0.000000     -0.291316     -4.349664
+      0.00000      2.52630      2.72140        -0.000000      0.000000      6.627331
+      1.26315      3.78945      0.99998        -0.000000      1.024767      1.127504
+      1.26315      3.42761      4.35919        -0.000000     -5.566515      3.036130
+      1.26315      2.52630      2.09022        -0.000000     -0.000000     -6.453862
+      0.00000      3.45451      3.67969         0.000000      0.291316     -4.349664
+      2.52630     -0.00000      2.91729        -0.000000     -0.000000     -1.235740
+      3.78945      1.26315      0.99998         0.000000     -1.024767      1.127504
+      3.78945      1.62499      4.35919         0.000000      5.566515      3.036130
+      3.78945      0.00000      1.98372        -0.000000     -0.000000      1.434331
+      2.52630      1.59809      3.67969        -0.000000     -0.291316     -4.349664
+      2.52630      2.52630      2.72140         0.000000      0.000000      6.627331
+      3.78945      3.78945      0.99998         0.000000      1.024767      1.127504
+      3.78945      3.42761      4.35919         0.000000     -5.566515      3.036130
+      3.78945      2.52630      2.09022        -0.000000      0.000000     -6.453862
+      2.52630      3.45451      3.67969         0.000000      0.291316     -4.349664
+ -----------------------------------------------------------------------------------
+    total drift:                                0.000000      0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -142.55928791 eV
+
+  ML energy  without entropy=     -142.55928791  ML energy(sigma->0) =     -142.55928791
+
+      MLFF:  cpu time      0.0093: real time      0.0093
+     LOOP+:  cpu time      0.0176: real time      0.0176
+ Steepest descent step on ions:
+ trial-energy change:    0.317367  1 .order   -4.368870  -16.041022    7.303282
+  (g-gl).g = 0.160E+02      g.g   = 0.160E+02  gl.gl    = 0.000E+00
+ g(Force)  = 0.160E+02   g(Stress)= 0.000E+00 ortho     = 0.000E+00
+ gamma     =   0.00000
+ trial     =   1.00000
+ opt step  =   0.39845  (harmonic =   0.68715) maximal distance =0.13345973
+ next E    =  -145.775999   (d E  =  -2.89934)
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step        3  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -31.71211   -64.00468   -31.51033     0.00000    -0.00000     0.00000
+  in kB    -136.57331  -275.64649  -135.70430     0.00000    -0.00000     0.00000
+  external pressure =     -182.64 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =   -182.64 kB
+  Total+kin.  -136.573    -275.646    -135.704       0.000      -0.000       0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+     -0.00000     -0.00000      2.83849         0.000000     -0.000000      1.658294
+      1.26315      1.26315      0.99998         0.000000     -0.651865      1.387738
+      1.26315      1.64794      4.48767         0.000000      2.721765     -1.801345
+      1.26315     -0.00000      1.92923        -0.000000      0.000000      1.746208
+      0.00000      1.39661      3.67964        -0.000000     -0.677515     -2.178006
+      0.00000      2.52630      2.76044        -0.000000      0.000000      2.640449
+      1.26315      3.78945      0.99998        -0.000000      0.651865      1.387738
+      1.26315      3.40466      4.48767        -0.000000     -2.721765     -1.801345
+      1.26315      2.52630      1.97167         0.000000     -0.000000     -0.861725
+      0.00000      3.65599      3.67964        -0.000000      0.677515     -2.178006
+      2.52630     -0.00000      2.83849         0.000000      0.000000      1.658294
+      3.78945      1.26315      0.99998        -0.000000     -0.651865      1.387738
+      3.78945      1.64794      4.48767        -0.000000      2.721765     -1.801345
+      3.78945      0.00000      1.92923         0.000000     -0.000000      1.746208
+      2.52630      1.39661      3.67964         0.000000     -0.677515     -2.178006
+      2.52630      2.52630      2.76044         0.000000     -0.000000      2.640449
+      3.78945      3.78945      0.99998        -0.000000      0.651865      1.387738
+      3.78945      3.40466      4.48767         0.000000     -2.721765     -1.801345
+      3.78945      2.52630      1.97167        -0.000000      0.000000     -0.861725
+      2.52630      3.65599      3.67964         0.000000      0.677515     -2.178006
+ -----------------------------------------------------------------------------------
+    total drift:                                0.000000      0.000000     -0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -146.07977150 eV
+
+  ML energy  without entropy=     -146.07977150  ML energy(sigma->0) =     -146.07977150
+
+      MLFF:  cpu time      0.0090: real time      0.0090
+     LOOP+:  cpu time      0.0090: real time      0.0090
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step        4  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -39.07459   -15.04173   -14.61794    -0.00000    -0.00000     0.00000
+  in kB    -168.28103   -64.77962   -62.95451    -0.00000    -0.00000     0.00000
+  external pressure =      -98.67 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -98.67 kB
+  Total+kin.  -168.281     -64.780     -62.955      -0.000      -0.000       0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+      0.00000     -0.00000      2.93818        -0.000000      0.000000     -2.779628
+      1.26315      1.26315      0.99998         0.000000     -1.286484      1.752158
+      1.26315      1.75491      4.36343        -0.000000      2.040260     -1.911845
+      1.26315      0.00000      2.02360         0.000000     -0.000000     -0.171947
+     -0.00000      1.44280      3.58723         0.000000     -2.071238      4.480272
+     -0.00000      2.52630      2.85797         0.000000     -0.000000     -7.392643
+      1.26315      3.78945      0.99998         0.000000      1.286484      1.752158
+      1.26315      3.29769      4.36343         0.000000     -2.040260     -1.911845
+      1.26315      2.52630      1.97919        -0.000000      0.000000      1.703048
+     -0.00000      3.60980      3.58723         0.000000      2.071238      4.480272
+      2.52630     -0.00000      2.93818         0.000000      0.000000     -2.779628
+      3.78945      1.26315      0.99998        -0.000000     -1.286484      1.752158
+      3.78945      1.75491      4.36343         0.000000      2.040260     -1.911845
+      3.78945     -0.00000      2.02360         0.000000      0.000000     -0.171947
+      2.52630      1.44280      3.58723         0.000000     -2.071238      4.480272
+      2.52630      2.52630      2.85797        -0.000000      0.000000     -7.392643
+      3.78945      3.78945      0.99998        -0.000000      1.286484      1.752158
+      3.78945      3.29769      4.36343        -0.000000     -2.040260     -1.911845
+      3.78945      2.52630      1.97919         0.000000      0.000000      1.703048
+      2.52630      3.60980      3.58723        -0.000000      2.071238      4.480272
+ -----------------------------------------------------------------------------------
+    total drift:                               -0.000000      0.000000     -0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -146.99644985 eV
+
+  ML energy  without entropy=     -146.99644985  ML energy(sigma->0) =     -146.99644985
+
+      MLFF:  cpu time      0.0090: real time      0.0090
+     LOOP+:  cpu time      0.0090: real time      0.0090
+ Conjugate gradient step on ions:
+ trial-energy change:   -0.916678  1 .order   -0.841546   -3.901954    2.218862
+  (g-gl).g = 0.408E+01      g.g   = 0.436E+01  gl.gl    = 0.160E+02
+ g(Force)  = 0.436E+01   g(Stress)= 0.000E+00 ortho     = 0.283E+00
+ gamma     =   0.25436
+ trial     =   0.87969
+ opt step  =   0.57545  (harmonic =   0.56079) maximal distance =0.06997364
+ next E    =  -147.377037   (d E  =  -1.29727)
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step        5  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -35.91288   -34.08483   -18.89477     0.00000     0.00000     0.00000
+  in kB    -154.66462  -146.79182   -81.37336     0.00000     0.00000     0.00000
+  external pressure =     -127.61 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =   -127.61 kB
+  Total+kin.  -154.665    -146.792     -81.373       0.000       0.000       0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+      0.00000     -0.00000      2.90370        -0.000000      0.000000     -1.245656
+      1.26315      1.26315      0.99998         0.000000     -1.111188      1.706266
+      1.26315      1.71792      4.40640         0.000000      2.835406     -1.756980
+      1.26315      0.00000      1.99096         0.000000     -0.000000      0.371817
+     -0.00000      1.42683      3.61919        -0.000000     -1.558222      2.220279
+     -0.00000      2.52630      2.82424         0.000000     -0.000000     -4.389716
+      1.26315      3.78945      0.99998         0.000000      1.111188      1.706266
+      1.26315      3.33468      4.40640         0.000000     -2.835406     -1.756980
+      1.26315      2.52630      1.97659        -0.000000      0.000000      0.924425
+     -0.00000      3.62577      3.61919         0.000000      1.558222      2.220279
+      2.52630     -0.00000      2.90370         0.000000      0.000000     -1.245656
+      3.78945      1.26315      0.99998        -0.000000     -1.111188      1.706266
+      3.78945      1.71792      4.40640        -0.000000      2.835406     -1.756980
+      3.78945     -0.00000      1.99096        -0.000000      0.000000      0.371817
+      2.52630      1.42683      3.61919         0.000000     -1.558222      2.220279
+      2.52630      2.52630      2.82424        -0.000000     -0.000000     -4.389716
+      3.78945      3.78945      0.99998        -0.000000      1.111188      1.706266
+      3.78945      3.33468      4.40640        -0.000000     -2.835406     -1.756980
+      3.78945      2.52630      1.97659        -0.000000     -0.000000      0.924425
+      2.52630      3.62577      3.61919         0.000000      1.558222      2.220279
+ -----------------------------------------------------------------------------------
+    total drift:                               -0.000000      0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -147.39284355 eV
+
+  ML energy  without entropy=     -147.39284355  ML energy(sigma->0) =     -147.39284355
+
+      MLFF:  cpu time      0.0090: real time      0.0090
+     LOOP+:  cpu time      0.0090: real time      0.0090
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step        6  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -35.57584    -9.75901    -9.58352     0.00000     0.00000    -0.00000
+  in kB    -153.21309   -42.02876   -41.27296     0.00000     0.00000    -0.00000
+  external pressure =      -78.84 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -78.84 kB
+  Total+kin.  -153.213     -42.029     -41.273       0.000       0.000      -0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+      0.00000     -0.00000      2.93017        -0.000000     -0.000000     -1.549239
+      1.26315      1.26315      0.99998         0.000000     -1.207323      1.865556
+      1.26315      1.80813      4.32439         0.000000     -0.566294     -0.584390
+      1.26315      0.00000      2.03900         0.000000     -0.000000     -1.250942
+     -0.00000      1.42456      3.61044         0.000000     -0.050435      1.472558
+     -0.00000      2.52630      2.80316         0.000000      0.000000     -1.993938
+      1.26315      3.78945      0.99998         0.000000      1.207323      1.865556
+      1.26315      3.24447      4.32439        -0.000000      0.566294     -0.584390
+      1.26315      2.52630      1.99368        -0.000000      0.000000     -0.713329
+     -0.00000      3.62804      3.61044         0.000000      0.050435      1.472558
+      2.52630      0.00000      2.93017         0.000000      0.000000     -1.549239
+      3.78945      1.26315      0.99998        -0.000000     -1.207323      1.865556
+      3.78945      1.80813      4.32439         0.000000     -0.566294     -0.584390
+      3.78945     -0.00000      2.03900         0.000000     -0.000000     -1.250942
+      2.52630      1.42456      3.61044        -0.000000     -0.050435      1.472558
+      2.52630      2.52630      2.80316        -0.000000      0.000000     -1.993938
+      3.78945      3.78945      0.99998        -0.000000      1.207323      1.865556
+      3.78945      3.24447      4.32439        -0.000000      0.566294     -0.584390
+      3.78945      2.52630      1.99368         0.000000      0.000000     -0.713329
+      2.52630      3.62804      3.61044        -0.000000      0.050435      1.472558
+ -----------------------------------------------------------------------------------
+    total drift:                                0.000000     -0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.26121883 eV
+
+  ML energy  without entropy=     -148.26121883  ML energy(sigma->0) =     -148.26121883
+
+      MLFF:  cpu time      0.0090: real time      0.0090
+     LOOP+:  cpu time      0.0090: real time      0.0090
+ Conjugate gradient step on ions:
+ trial-energy change:   -0.868375  1 .order   -0.758050   -1.722331    0.206232
+  (g-gl).g = 0.563E+01      g.g   = 0.567E+01  gl.gl    = 0.436E+01
+ g(Force)  = 0.567E+01   g(Stress)= 0.000E+00 ortho     =-0.487E-01
+ gamma     =   1.29092
+ trial     =   0.30708
+ opt step  =   0.28212  (harmonic =   0.27424) maximal distance =0.08287461
+ next E    =  -148.269543   (d E  =  -0.87670)
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step        7  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -35.53420   -11.86700   -10.14292    -0.00000    -0.00000     0.00000
+  in kB    -153.03375   -51.10714   -43.68214    -0.00000    -0.00000     0.00000
+  external pressure =      -82.61 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -82.61 kB
+  Total+kin.  -153.034     -51.107     -43.682      -0.000      -0.000       0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+      0.00000     -0.00000      2.92802        -0.000000     -0.000000     -1.525661
+      1.26315      1.26315      0.99998         0.000000     -1.201436      1.858664
+      1.26315      1.80079      4.33105         0.000000     -0.135190     -0.650894
+      1.26315      0.00000      2.03510        -0.000000     -0.000000     -1.127347
+     -0.00000      1.42475      3.61115        -0.000000     -0.176082      1.524818
+     -0.00000      2.52630      2.80488         0.000000      0.000000     -2.214174
+      1.26315      3.78945      0.99998        -0.000000      1.201436      1.858664
+      1.26315      3.25181      4.33105        -0.000000      0.135190     -0.650894
+      1.26315      2.52630      1.99229        -0.000000     -0.000000     -0.597995
+     -0.00000      3.62785      3.61115         0.000000      0.176082      1.524818
+      2.52630      0.00000      2.92802         0.000000      0.000000     -1.525661
+      3.78945      1.26315      0.99998         0.000000     -1.201436      1.858664
+      3.78945      1.80079      4.33105         0.000000     -0.135190     -0.650894
+      3.78945     -0.00000      2.03510         0.000000      0.000000     -1.127347
+      2.52630      1.42475      3.61115        -0.000000     -0.176082      1.524818
+      2.52630      2.52630      2.80488        -0.000000     -0.000000     -2.214174
+      3.78945      3.78945      0.99998         0.000000      1.201436      1.858664
+      3.78945      3.25181      4.33105         0.000000      0.135190     -0.650894
+      3.78945      2.52630      1.99229         0.000000     -0.000000     -0.597995
+      2.52630      3.62785      3.61115        -0.000000      0.176082      1.524818
+ -----------------------------------------------------------------------------------
+    total drift:                                0.000000     -0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.26968729 eV
+
+  ML energy  without entropy=     -148.26968729  ML energy(sigma->0) =     -148.26968729
+
+      MLFF:  cpu time      0.0090: real time      0.0090
+     LOOP+:  cpu time      0.0090: real time      0.0090
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step        8  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -33.19057   -18.87986   -10.27999     0.00000    -0.00000     0.00000
+  in kB    -142.94056   -81.30916   -44.27244     0.00000    -0.00000     0.00000
+  external pressure =      -89.51 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -89.51 kB
+  Total+kin.  -142.941     -81.309     -44.272       0.000      -0.000       0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+     -0.00000     -0.00000      2.90356         0.000000      0.000000     -0.332263
+      1.26315      1.26315      0.99998        -0.000000     -1.160134      1.712471
+      1.26315      1.79122      4.32848        -0.000000      0.787285      0.265600
+      1.26315      0.00000      2.01462         0.000000     -0.000000     -0.936126
+     -0.00000      1.42237      3.63411         0.000000     -0.212301     -0.864935
+     -0.00000      2.52630      2.77438         0.000000      0.000000      0.216747
+      1.26315      3.78945      0.99998        -0.000000      1.160134      1.712471
+      1.26315      3.26138      4.32848        -0.000000     -0.787285      0.265600
+      1.26315      2.52630      1.98213        -0.000000      0.000000     -1.174629
+     -0.00000      3.63023      3.63411         0.000000      0.212301     -0.864935
+      2.52630      0.00000      2.90356        -0.000000      0.000000     -0.332263
+      3.78945      1.26315      0.99998         0.000000     -1.160134      1.712471
+      3.78945      1.79122      4.32848         0.000000      0.787285      0.265600
+      3.78945      0.00000      2.01462         0.000000      0.000000     -0.936126
+      2.52630      1.42237      3.63411         0.000000     -0.212301     -0.864935
+      2.52630      2.52630      2.77438        -0.000000      0.000000      0.216747
+      3.78945      3.78945      0.99998        -0.000000      1.160134      1.712471
+      3.78945      3.26138      4.32848         0.000000     -0.787285      0.265600
+      3.78945      2.52630      1.98213         0.000000      0.000000     -1.174629
+      2.52630      3.63023      3.63411        -0.000000      0.212301     -0.864935
+ -----------------------------------------------------------------------------------
+    total drift:                                0.000000      0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.45906381 eV
+
+  ML energy  without entropy=     -148.45906381  ML energy(sigma->0) =     -148.45906381
+
+      MLFF:  cpu time      0.0091: real time      0.0091
+     LOOP+:  cpu time      0.0091: real time      0.0091
+ Conjugate gradient step on ions:
+ trial-energy change:   -0.189377  1 .order   -0.188262   -0.421582    0.045059
+  (g-gl).g =-0.486E+00      g.g   = 0.139E+01  gl.gl    = 0.567E+01
+ g(Force)  = 0.139E+01   g(Stress)= 0.000E+00 ortho     =-0.104E-01
+ gamma     =  -0.08563
+ trial     =   0.30209
+ opt step  =   0.27329  (harmonic =   0.27292) maximal distance =0.02077066
+ next E    =  -148.461210   (d E  =  -0.19152)
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step        9  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -33.39607   -18.21498   -10.23177     0.00000    -0.00000     0.00000
+  in kB    -143.82558   -78.44575   -44.06476     0.00000    -0.00000     0.00000
+  external pressure =      -88.78 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -88.78 kB
+  Total+kin.  -143.826     -78.446     -44.065       0.000      -0.000       0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+     -0.00000     -0.00000      2.90589         0.000000     -0.000000     -0.444886
+      1.26315      1.26315      0.99998        -0.000000     -1.164707      1.728568
+      1.26315      1.79213      4.32872         0.000000      0.696030      0.178554
+      1.26315      0.00000      2.01657         0.000000      0.000000     -0.958313
+     -0.00000      1.42260      3.63192         0.000000     -0.207151     -0.636215
+     -0.00000      2.52630      2.77729         0.000000      0.000000     -0.017779
+      1.26315      3.78945      0.99998        -0.000000      1.164707      1.728568
+      1.26315      3.26047      4.32872         0.000000     -0.696030      0.178554
+      1.26315      2.52630      1.98310         0.000000     -0.000000     -1.120836
+     -0.00000      3.63000      3.63192         0.000000      0.207151     -0.636215
+      2.52630      0.00000      2.90589        -0.000000     -0.000000     -0.444886
+      3.78945      1.26315      0.99998        -0.000000     -1.164707      1.728568
+      3.78945      1.79213      4.32872        -0.000000      0.696030      0.178554
+      3.78945      0.00000      2.01657        -0.000000      0.000000     -0.958313
+      2.52630      1.42260      3.63192        -0.000000     -0.207151     -0.636215
+      2.52630      2.52630      2.77729        -0.000000      0.000000     -0.017779
+      3.78945      3.78945      0.99998         0.000000      1.164707      1.728568
+      3.78945      3.26047      4.32872        -0.000000     -0.696030      0.178554
+      3.78945      2.52630      1.98310         0.000000      0.000000     -1.120836
+      2.52630      3.63000      3.63192        -0.000000      0.207151     -0.636215
+ -----------------------------------------------------------------------------------
+    total drift:                                0.000000      0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.46121493 eV
+
+  ML energy  without entropy=     -148.46121493  ML energy(sigma->0) =     -148.46121493
+
+      MLFF:  cpu time      0.0089: real time      0.0089
+     LOOP+:  cpu time      0.0089: real time      0.0089
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step       10  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -34.82274   -18.91564   -11.64972     0.00000    -0.00000     0.00000
+  in kB    -149.96975   -81.46324   -50.17141     0.00000    -0.00000     0.00000
+  external pressure =      -93.87 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -93.87 kB
+  Total+kin.  -149.970     -81.463     -50.171       0.000      -0.000       0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+     -0.00000     -0.00000      2.89269         0.000000      0.000000     -0.390284
+      1.26315      1.26315      0.99998         0.000000     -1.202650      1.490691
+      1.26315      1.79941      4.33055        -0.000000      0.099673     -0.082858
+      1.26315      0.00000      1.99715        -0.000000     -0.000000     -0.541747
+     -0.00000      1.41897      3.62924         0.000000      0.065635     -0.625900
+     -0.00000      2.52630      2.76851        -0.000000     -0.000000     -0.116200
+      1.26315      3.78945      0.99998         0.000000      1.202650      1.490691
+      1.26315      3.25319      4.33055         0.000000     -0.099673     -0.082858
+      1.26315      2.52630      1.96424         0.000000      0.000000     -0.515635
+     -0.00000      3.63363      3.62924        -0.000000     -0.065635     -0.625900
+      2.52630     -0.00000      2.89269        -0.000000      0.000000     -0.390284
+      3.78945      1.26315      0.99998        -0.000000     -1.202650      1.490691
+      3.78945      1.79941      4.33055         0.000000      0.099673     -0.082858
+      3.78945      0.00000      1.99715         0.000000     -0.000000     -0.541747
+      2.52630      1.41897      3.62924         0.000000      0.065635     -0.625900
+      2.52630      2.52630      2.76851        -0.000000      0.000000     -0.116200
+      3.78945      3.78945      0.99998        -0.000000      1.202650      1.490691
+      3.78945      3.25319      4.33055        -0.000000     -0.099673     -0.082858
+      3.78945      2.52630      1.96424        -0.000000     -0.000000     -0.515635
+      2.52630      3.63363      3.62924        -0.000000     -0.065635     -0.625900
+ -----------------------------------------------------------------------------------
+    total drift:                                0.000000     -0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.55350829 eV
+
+  ML energy  without entropy=     -148.55350829  ML energy(sigma->0) =     -148.55350829
+
+      MLFF:  cpu time      0.0089: real time      0.0089
+     LOOP+:  cpu time      0.0089: real time      0.0089
+ Conjugate gradient step on ions:
+ trial-energy change:   -0.092293  1 .order   -0.091914   -0.122946   -0.060883
+  (g-gl).g = 0.398E+00      g.g   = 0.415E+00  gl.gl    = 0.139E+01
+ g(Force)  = 0.415E+00   g(Stress)= 0.000E+00 ortho     =-0.277E-03
+ gamma     =   0.28503
+ trial     =   0.29633
+ opt step  =   0.56795  (harmonic =   0.58702) maximal distance =0.01394258
+ next E    =  -148.581703   (d E  =  -0.12049)
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step       11  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -36.11146   -19.41775   -12.81157    -0.00000    -0.00000     0.00000
+  in kB    -155.51983   -83.62569   -55.17509    -0.00000    -0.00000     0.00000
+  external pressure =      -98.11 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -98.11 kB
+  Total+kin.  -155.520     -83.626     -55.175      -0.000      -0.000       0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+     -0.00000     -0.00000      2.88059         0.000000      0.000000     -0.338520
+      1.26315      1.26315      0.99998         0.000000     -1.236632      1.227424
+      1.26315      1.80608      4.33223         0.000000     -0.470605     -0.317984
+      1.26315      0.00000      1.97934        -0.000000     -0.000000     -0.124844
+      0.00000      1.41565      3.62679         0.000000      0.323946     -0.618048
+     -0.00000      2.52630      2.76046         0.000000      0.000000     -0.206027
+      1.26315      3.78945      0.99998        -0.000000      1.236632      1.227424
+      1.26315      3.24652      4.33223        -0.000000      0.470605     -0.317984
+      1.26315      2.52630      1.94695         0.000000      0.000000      0.086606
+      0.00000      3.63695      3.62679        -0.000000     -0.323946     -0.618048
+      2.52630     -0.00000      2.88059        -0.000000      0.000000     -0.338520
+      3.78945      1.26315      0.99998        -0.000000     -1.236632      1.227424
+      3.78945      1.80608      4.33223        -0.000000     -0.470605     -0.317984
+      3.78945      0.00000      1.97934        -0.000000     -0.000000     -0.124844
+      2.52630      1.41565      3.62679         0.000000      0.323946     -0.618048
+      2.52630      2.52630      2.76046         0.000000     -0.000000     -0.206027
+      3.78945      3.78945      0.99998        -0.000000      1.236632      1.227424
+      3.78945      3.24652      4.33223         0.000000      0.470605     -0.317984
+      3.78945      2.52630      1.94695        -0.000000      0.000000      0.086606
+      2.52630      3.63695      3.62679        -0.000000     -0.323946     -0.618048
+ -----------------------------------------------------------------------------------
+    total drift:                                0.000000     -0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.58171239 eV
+
+  ML energy  without entropy=     -148.58171239  ML energy(sigma->0) =     -148.58171239
+
+      MLFF:  cpu time      0.0089: real time      0.0089
+     LOOP+:  cpu time      0.0089: real time      0.0089
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step       12  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -36.61392   -20.26863   -12.02332    -0.00000     0.00000    -0.00000
+  in kB    -157.68374   -87.29014   -51.78037    -0.00000     0.00000    -0.00000
+  external pressure =      -98.92 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -98.92 kB
+  Total+kin.  -157.684     -87.290     -51.780      -0.000       0.000      -0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+      0.00000      0.00000      2.86855         0.000000     -0.000000     -0.272325
+      1.26315      1.26315      0.99998        -0.000000     -1.278372      1.045642
+      1.26315      1.80160      4.32773         0.000000     -0.187233     -0.421867
+      1.26315     -0.00000      1.96794        -0.000000     -0.000000      0.065731
+      0.00000      1.41939      3.61506        -0.000000      0.059696     -0.426908
+     -0.00000      2.52630      2.75278        -0.000000      0.000000     -0.430418
+      1.26315      3.78945      0.99998        -0.000000      1.278372      1.045642
+      1.26315      3.25100      4.32773        -0.000000      0.187233     -0.421867
+      1.26315      2.52630      1.93939         0.000000      0.000000      0.243277
+      0.00000      3.63321      3.61506        -0.000000     -0.059696     -0.426908
+      2.52630      0.00000      2.86855        -0.000000     -0.000000     -0.272325
+      3.78945      1.26315      0.99998        -0.000000     -1.278372      1.045642
+      3.78945      1.80160      4.32773         0.000000     -0.187233     -0.421867
+      3.78945      0.00000      1.96794         0.000000     -0.000000      0.065731
+      2.52630      1.41939      3.61506        -0.000000      0.059696     -0.426908
+      2.52630      2.52630      2.75278         0.000000      0.000000     -0.430418
+      3.78945      3.78945      0.99998        -0.000000      1.278372      1.045642
+      3.78945      3.25100      4.32773         0.000000      0.187233     -0.421867
+      3.78945      2.52630      1.93939         0.000000      0.000000      0.243277
+      2.52630      3.63321      3.61506         0.000000     -0.059696     -0.426908
+ -----------------------------------------------------------------------------------
+    total drift:                                0.000000     -0.000000     -0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.63214393 eV
+
+  ML energy  without entropy=     -148.63214393  ML energy(sigma->0) =     -148.63214393
+
+      MLFF:  cpu time      0.0089: real time      0.0089
+     LOOP+:  cpu time      0.0089: real time      0.0089
+ Conjugate gradient step on ions:
+ trial-energy change:   -0.050432  1 .order   -0.050385   -0.060885   -0.039885
+  (g-gl).g = 0.168E+00      g.g   = 0.174E+00  gl.gl    = 0.415E+00
+ g(Force)  = 0.174E+00   g(Stress)= 0.000E+00 ortho     = 0.104E-03
+ gamma     =   0.40428
+ trial     =   0.35065
+ opt step  =   1.01665  (harmonic =   1.01665) maximal distance =0.01299139
+ next E    =  -148.669975   (d E  =  -0.08826)
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step       13  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -37.63132   -21.72193   -10.45984     0.00000     0.00000    -0.00000
+  in kB    -162.06534   -93.54899   -45.04699     0.00000     0.00000    -0.00000
+  external pressure =     -100.22 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =   -100.22 kB
+  Total+kin.  -162.065     -93.549     -45.047       0.000       0.000      -0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+      0.00000      0.00000      2.84568        -0.000000     -0.000000     -0.147014
+      1.26315      1.26315      0.99998        -0.000000     -1.348052      0.660606
+      1.26315      1.79309      4.31918        -0.000000      0.318159     -0.634668
+      1.26315     -0.00000      1.94628         0.000000      0.000000      0.477124
+      0.00000      1.42651      3.59277        -0.000000     -0.438618     -0.042005
+      0.00000      2.52630      2.73818        -0.000000     -0.000000     -0.865074
+      1.26315      3.78945      0.99998        -0.000000      1.348052      0.660606
+      1.26315      3.25951      4.31918        -0.000000     -0.318159     -0.634668
+      1.26315      2.52630      1.92504        -0.000000     -0.000000      0.567099
+     -0.00000      3.62609      3.59277         0.000000      0.438618     -0.042005
+      2.52630      0.00000      2.84568         0.000000     -0.000000     -0.147014
+      3.78945      1.26315      0.99998        -0.000000     -1.348052      0.660606
+      3.78945      1.79309      4.31918         0.000000      0.318159     -0.634668
+      3.78945     -0.00000      1.94628        -0.000000      0.000000      0.477124
+      2.52630      1.42651      3.59277        -0.000000     -0.438618     -0.042005
+      2.52630      2.52630      2.73818        -0.000000      0.000000     -0.865074
+      3.78945      3.78945      0.99998        -0.000000      1.348052      0.660606
+      3.78945      3.25951      4.31918        -0.000000     -0.318159     -0.634668
+      3.78945      2.52630      1.92504         0.000000     -0.000000      0.567099
+      2.52630      3.62609      3.59277         0.000000      0.438618     -0.042005
+ -----------------------------------------------------------------------------------
+    total drift:                               -0.000000      0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.66890689 eV
+
+  ML energy  without entropy=     -148.66890689  ML energy(sigma->0) =     -148.66890689
+
+      MLFF:  cpu time      0.0090: real time      0.0090
+     LOOP+:  cpu time      0.0090: real time      0.0090
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step       14  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -37.46510   -22.33892    -9.43366     0.00000     0.00000    -0.00000
+  in kB    -161.34948   -96.20616   -40.62757     0.00000     0.00000    -0.00000
+  external pressure =      -99.39 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -99.39 kB
+  Total+kin.  -161.349     -96.206     -40.628       0.000       0.000      -0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+      0.00000      0.00000      2.83671        -0.000000     -0.000000      0.020485
+      1.26315      1.26315      0.99998        -0.000000     -1.352560      0.602729
+      1.26315      1.79257      4.31144        -0.000000      0.317752     -0.604577
+      1.26315     -0.00000      1.94244         0.000000      0.000000      0.403374
+      0.00000      1.42563      3.58479        -0.000000     -0.408266     -0.125534
+      0.00000      2.52630      2.72662         0.000000     -0.000000     -0.405471
+      1.26315      3.78945      0.99998        -0.000000      1.352560      0.602729
+      1.26315      3.26003      4.31144         0.000000     -0.317752     -0.604577
+      1.26315      2.52630      1.92439         0.000000     -0.000000      0.236376
+      0.00000      3.62697      3.58479         0.000000      0.408266     -0.125534
+      2.52630      0.00000      2.83671        -0.000000     -0.000000      0.020485
+      3.78945      1.26315      0.99998        -0.000000     -1.352560      0.602729
+      3.78945      1.79257      4.31144         0.000000      0.317752     -0.604577
+      3.78945      0.00000      1.94244        -0.000000      0.000000      0.403374
+      2.52630      1.42563      3.58479        -0.000000     -0.408266     -0.125534
+      2.52630      2.52630      2.72662        -0.000000      0.000000     -0.405471
+      3.78945      3.78945      0.99998        -0.000000      1.352560      0.602729
+      3.78945      3.26003      4.31144        -0.000000     -0.317752     -0.604577
+      3.78945      2.52630      1.92439         0.000000     -0.000000      0.236376
+      2.52630      3.62697      3.58479         0.000000      0.408266     -0.125534
+ -----------------------------------------------------------------------------------
+    total drift:                                0.000000     -0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.70352726 eV
+
+  ML energy  without entropy=     -148.70352726  ML energy(sigma->0) =     -148.70352726
+
+      MLFF:  cpu time      0.0089: real time      0.0089
+     LOOP+:  cpu time      0.0089: real time      0.0089
+ Conjugate gradient step on ions:
+ trial-energy change:   -0.034620  1 .order   -0.034612   -0.040118   -0.029105
+  (g-gl).g = 0.253E+00      g.g   = 0.262E+00  gl.gl    = 0.174E+00
+ g(Force)  = 0.262E+00   g(Stress)= 0.000E+00 ortho     =-0.425E-02
+ gamma     =   1.45964
+ trial     =   0.15683
+ opt step  =   0.57126  (harmonic =   0.57126) maximal distance =0.00318104
+ next E    =  -148.741975   (d E  =  -0.07307)
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step       15  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -36.97511   -23.91744    -6.83372     0.00000     0.00000     0.00000
+  in kB    -159.23929  -103.00433   -29.43052     0.00000     0.00000     0.00000
+  external pressure =      -97.22 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -97.22 kB
+  Total+kin.  -159.239    -103.004     -29.431       0.000       0.000       0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+      0.00000      0.00000      2.81299         0.000000     -0.000000      0.477580
+      1.26315      1.26315      0.99998        -0.000000     -1.359371      0.445360
+      1.26315      1.79120      4.29098        -0.000000      0.318573     -0.535844
+      1.26315      0.00000      1.93231        -0.000000     -0.000000      0.203885
+      0.00000      1.42333      3.56370        -0.000000     -0.326468     -0.342066
+      0.00000      2.52630      2.69606        -0.000000     -0.000000      0.825740
+      1.26315      3.78945      0.99998        -0.000000      1.359371      0.445360
+      1.26315      3.26140      4.29098         0.000000     -0.318573     -0.535844
+      1.26315      2.52630      1.92269         0.000000     -0.000000     -0.642106
+      0.00000      3.62927      3.56370        -0.000000      0.326468     -0.342066
+      2.52630      0.00000      2.81299         0.000000     -0.000000      0.477580
+      3.78945      1.26315      0.99998         0.000000     -1.359371      0.445360
+      3.78945      1.79120      4.29098         0.000000      0.318573     -0.535844
+      3.78945      0.00000      1.93231         0.000000      0.000000      0.203885
+      2.52630      1.42333      3.56370         0.000000     -0.326468     -0.342066
+      2.52630      2.52630      2.69606         0.000000      0.000000      0.825740
+      3.78945      3.78945      0.99998        -0.000000      1.359371      0.445360
+      3.78945      3.26140      4.29098        -0.000000     -0.318573     -0.535844
+      3.78945      2.52630      1.92269        -0.000000     -0.000000     -0.642106
+      2.52630      3.62927      3.56370         0.000000      0.326468     -0.342066
+ -----------------------------------------------------------------------------------
+    total drift:                                0.000000     -0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.74154781 eV
+
+  ML energy  without entropy=     -148.74154781  ML energy(sigma->0) =     -148.74154781
+
+      MLFF:  cpu time      0.0089: real time      0.0089
+     LOOP+:  cpu time      0.0089: real time      0.0089
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step       16  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -37.35764   -22.99217    -5.55101    -0.00000     0.00000    -0.00000
+  in kB    -160.88668   -99.01949   -23.90632    -0.00000     0.00000    -0.00000
+  external pressure =      -94.60 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -94.60 kB
+  Total+kin.  -160.887     -99.019     -23.906      -0.000       0.000      -0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+      0.00000      0.00000      2.80687         0.000000     -0.000000      0.366276
+      1.26315      1.26315      0.99998        -0.000000     -1.397959      0.333102
+      1.26315      1.79387      4.27584        -0.000000      0.049295     -0.559574
+      1.26315      0.00000      1.92969         0.000000     -0.000000      0.146134
+      0.00000      1.41885      3.55029         0.000000     -0.172872     -0.100697
+      0.00000      2.52630      2.69036         0.000000      0.000000      0.614992
+      1.26315      3.78945      0.99998        -0.000000      1.397959      0.333102
+      1.26315      3.25873      4.27584         0.000000     -0.049295     -0.559574
+      1.26315      2.52630      1.91522         0.000000     -0.000000     -0.473065
+      0.00000      3.63375      3.55029        -0.000000      0.172872     -0.100697
+      2.52630      0.00000      2.80687        -0.000000     -0.000000      0.366276
+      3.78945      1.26315      0.99998         0.000000     -1.397959      0.333102
+      3.78945      1.79387      4.27584        -0.000000      0.049295     -0.559574
+      3.78945      0.00000      1.92969        -0.000000     -0.000000      0.146134
+      2.52630      1.41885      3.55029         0.000000     -0.172872     -0.100697
+      2.52630      2.52630      2.69036        -0.000000      0.000000      0.614992
+      3.78945      3.78945      0.99998         0.000000      1.397959      0.333102
+      3.78945      3.25873      4.27584        -0.000000     -0.049295     -0.559574
+      3.78945      2.52630      1.91522        -0.000000     -0.000000     -0.473065
+      2.52630      3.63375      3.55029         0.000000      0.172872     -0.100697
+ -----------------------------------------------------------------------------------
+    total drift:                               -0.000000      0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.78710142 eV
+
+  ML energy  without entropy=     -148.78710142  ML energy(sigma->0) =     -148.78710142
+
+      MLFF:  cpu time      0.0089: real time      0.0089
+     LOOP+:  cpu time      0.0089: real time      0.0089
+ Conjugate gradient step on ions:
+ trial-energy change:   -0.045554  1 .order   -0.045517   -0.053317   -0.037716
+  (g-gl).g = 0.236E+00      g.g   = 0.250E+00  gl.gl    = 0.262E+00
+ g(Force)  = 0.250E+00   g(Stress)= 0.000E+00 ortho     =-0.263E-02
+ gamma     =   0.89911
+ trial     =   0.21555
+ opt step  =   0.73661  (harmonic =   0.73661) maximal distance =0.01528941
+ next E    =  -148.832651   (d E  =  -0.09110)
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step       17  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -38.36286   -20.63727    -2.46016    -0.00000     0.00000    -0.00000
+  in kB    -165.21583   -88.87774   -10.59508    -0.00000     0.00000    -0.00000
+  external pressure =      -88.23 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -88.23 kB
+  Total+kin.  -165.216     -88.878     -10.595      -0.000       0.000      -0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+      0.00000     -0.00000      2.79207         0.000000      0.000000      0.065299
+      1.26315      1.26315      0.99998        -0.000000     -1.490112      0.039639
+      1.26315      1.80033      4.23925        -0.000000     -0.604913     -0.637526
+      1.26315      0.00000      1.92335         0.000000     -0.000000      0.011301
+      0.00000      1.40804      3.51785         0.000000      0.258135      0.511782
+      0.00000      2.52630      2.67658         0.000000      0.000000      0.140763
+      1.26315      3.78945      0.99998        -0.000000      1.490112      0.039639
+      1.26315      3.25227      4.23925         0.000000      0.604913     -0.637526
+      1.26315      2.52630      1.89715         0.000000      0.000000     -0.045153
+      0.00000      3.64456      3.51785         0.000000     -0.258135      0.511782
+      2.52630     -0.00000      2.79207        -0.000000      0.000000      0.065299
+      3.78945      1.26315      0.99998         0.000000     -1.490112      0.039639
+      3.78945      1.80033      4.23925        -0.000000     -0.604913     -0.637526
+      3.78945      0.00000      1.92335        -0.000000     -0.000000      0.011301
+      2.52630      1.40804      3.51785         0.000000      0.258135      0.511782
+      2.52630      2.52630      2.67658        -0.000000     -0.000000      0.140763
+      3.78945      3.78945      0.99998         0.000000      1.490112      0.039639
+      3.78945      3.25227      4.23925         0.000000      0.604913     -0.637526
+      3.78945      2.52630      1.89715        -0.000000      0.000000     -0.045153
+      2.52630      3.64456      3.51785        -0.000000     -0.258135      0.511782
+ -----------------------------------------------------------------------------------
+    total drift:                               -0.000000      0.000000     -0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.83106149 eV
+
+  ML energy  without entropy=     -148.83106149  ML energy(sigma->0) =     -148.83106149
+
+      MLFF:  cpu time      0.0090: real time      0.0089
+     LOOP+:  cpu time      0.0090: real time      0.0089
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step       18  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -37.64762   -20.06760    -0.05005     0.00000     0.00000     0.00000
+  in kB    -162.13556   -86.42434    -0.21554     0.00000     0.00000     0.00000
+  external pressure =      -82.93 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -82.93 kB
+  Total+kin.  -162.136     -86.424      -0.216       0.000       0.000       0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+      0.00000     -0.00000      2.78511        -0.000000      0.000000      0.030984
+      1.26315      1.26315      0.99998        -0.000000     -1.543097     -0.111929
+      1.26315      1.79448      4.20971         0.000000     -0.023856     -0.103028
+      1.26315      0.00000      1.92012         0.000000     -0.000000      0.016189
+      0.00000      1.40620      3.50829        -0.000000      0.028213      0.051587
+      0.00000      2.52630      2.67133         0.000000      0.000000      0.075775
+      1.26315      3.78945      0.99998        -0.000000      1.543097     -0.111929
+      1.26315      3.25812      4.20971        -0.000000      0.023856     -0.103028
+      1.26315      2.52630      1.88673        -0.000000      0.000000      0.203790
+      0.00000      3.64640      3.50829         0.000000     -0.028213      0.051587
+      2.52630     -0.00000      2.78511         0.000000      0.000000      0.030984
+      3.78945      1.26315      0.99998         0.000000     -1.543097     -0.111929
+      3.78945      1.79448      4.20971        -0.000000     -0.023856     -0.103028
+      3.78945      0.00000      1.92012        -0.000000     -0.000000      0.016189
+      2.52630      1.40620      3.50829        -0.000000      0.028213      0.051587
+      2.52630      2.52630      2.67133        -0.000000     -0.000000      0.075775
+      3.78945      3.78945      0.99998         0.000000      1.543097     -0.111929
+      3.78945      3.25812      4.20971         0.000000      0.023856     -0.103028
+      3.78945      2.52630      1.88673         0.000000      0.000000      0.203790
+      2.52630      3.64640      3.50829         0.000000     -0.028213      0.051587
+ -----------------------------------------------------------------------------------
+    total drift:                               -0.000000     -0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.86677261 eV
+
+  ML energy  without entropy=     -148.86677261  ML energy(sigma->0) =     -148.86677261
+
+      MLFF:  cpu time      0.0090: real time      0.0090
+     LOOP+:  cpu time      0.0090: real time      0.0090
+ Conjugate gradient step on ions:
+ trial-energy change:   -0.035711  1 .order   -0.035726   -0.066481   -0.004970
+  (g-gl).g = 0.219E+00      g.g   = 0.215E+00  gl.gl    = 0.250E+00
+ g(Force)  = 0.215E+00   g(Stress)= 0.000E+00 ortho     =-0.806E-02
+ gamma     =   0.87714
+ trial     =   0.31976
+ opt step  =   0.34560  (harmonic =   0.34560) maximal distance =0.00632698
+ next E    =  -148.866988   (d E  =  -0.03593)
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step       19  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -37.58634   -20.02010     0.13729     0.00000    -0.00000    -0.00000
+  in kB    -161.87165   -86.21979     0.59128     0.00000    -0.00000    -0.00000
+  external pressure =      -82.50 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -82.50 kB
+  Total+kin.  -161.872     -86.220       0.591       0.000      -0.000      -0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+      0.00000     -0.00000      2.78455        -0.000000      0.000000      0.028057
+      1.26315      1.26315      0.99998        -0.000000     -1.547507     -0.124010
+      1.26315      1.79401      4.20733         0.000000      0.023502     -0.059991
+      1.26315      0.00000      1.91986         0.000000     -0.000000      0.015786
+      0.00000      1.40605      3.50752        -0.000000      0.009364      0.014003
+      0.00000      2.52630      2.67091         0.000000      0.000000      0.071700
+      1.26315      3.78945      0.99998        -0.000000      1.547507     -0.124010
+      1.26315      3.25859      4.20733        -0.000000     -0.023502     -0.059991
+      1.26315      2.52630      1.88589        -0.000000      0.000000      0.224452
+      0.00000      3.64655      3.50752         0.000000     -0.009364      0.014003
+      2.52630     -0.00000      2.78455         0.000000      0.000000      0.028057
+      3.78945      1.26315      0.99998         0.000000     -1.547507     -0.124010
+      3.78945      1.79401      4.20733        -0.000000      0.023502     -0.059991
+      3.78945      0.00000      1.91986        -0.000000     -0.000000      0.015786
+      2.52630      1.40605      3.50752        -0.000000      0.009364      0.014003
+      2.52630      2.52630      2.67091        -0.000000     -0.000000      0.071700
+      3.78945      3.78945      0.99998         0.000000      1.547507     -0.124010
+      3.78945      3.25859      4.20733         0.000000     -0.023502     -0.059991
+      3.78945      2.52630      1.88589         0.000000      0.000000      0.224452
+      2.52630      3.64655      3.50752         0.000000     -0.009364      0.014003
+ -----------------------------------------------------------------------------------
+    total drift:                                0.000000      0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.86697377 eV
+
+  ML energy  without entropy=     -148.86697377  ML energy(sigma->0) =     -148.86697377
+
+      MLFF:  cpu time      0.0089: real time      0.0089
+     LOOP+:  cpu time      0.0089: real time      0.0089
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step       20  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -37.45791   -19.85106     0.23311    -0.00000     0.00000     0.00000
+  in kB    -161.31855   -85.49180     1.00391    -0.00000     0.00000     0.00000
+  external pressure =      -81.94 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -81.94 kB
+  Total+kin.  -161.319     -85.492       1.004      -0.000       0.000       0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+      0.00000      0.00000      2.78500        -0.000000     -0.000000      0.018278
+      1.26315      1.26315      0.99998        -0.000000     -1.524288     -0.080145
+      1.26315      1.79438      4.20644         0.000000      0.023345     -0.031781
+      1.26315     -0.00000      1.92011         0.000000      0.000000      0.013537
+      0.00000      1.40620      3.50775         0.000000      0.002122      0.003514
+      0.00000      2.52630      2.67204        -0.000000      0.000000      0.118956
+      1.26315      3.78945      0.99998         0.000000      1.524288     -0.080145
+      1.26315      3.25822      4.20644         0.000000     -0.023345     -0.031781
+      1.26315      2.52630      1.88943        -0.000000      0.000000      0.066052
+      0.00000      3.64640      3.50775         0.000000     -0.002122      0.003514
+      2.52630      0.00000      2.78500         0.000000      0.000000      0.018278
+      3.78945      1.26315      0.99998        -0.000000     -1.524288     -0.080145
+      3.78945      1.79438      4.20644        -0.000000      0.023345     -0.031781
+      3.78945      0.00000      1.92011        -0.000000     -0.000000      0.013537
+      2.52630      1.40620      3.50775        -0.000000      0.002122      0.003514
+      2.52630      2.52630      2.67204         0.000000      0.000000      0.118956
+      3.78945      3.78945      0.99998         0.000000      1.524288     -0.080145
+      3.78945      3.25822      4.20644         0.000000     -0.023345     -0.031781
+      3.78945      2.52630      1.88943        -0.000000      0.000000      0.066052
+      2.52630      3.64640      3.50775        -0.000000     -0.002122      0.003514
+ -----------------------------------------------------------------------------------
+    total drift:                                0.000000     -0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.86845475 eV
+
+  ML energy  without entropy=     -148.86845475  ML energy(sigma->0) =     -148.86845475
+
+      MLFF:  cpu time      0.0089: real time      0.0089
+     LOOP+:  cpu time      0.0089: real time      0.0089
+ Conjugate gradient step on ions:
+ trial-energy change:   -0.001481  1 .order   -0.001482   -0.002051   -0.000913
+  (g-gl).g =-0.364E-03      g.g   = 0.631E-02  gl.gl    = 0.215E+00
+ g(Force)  = 0.631E-02   g(Stress)= 0.000E+00 ortho     = 0.289E-04
+ gamma     =  -0.00169
+ trial     =   0.32493
+ opt step  =   0.58563  (harmonic =   0.58563) maximal distance =0.00637353
+ next E    =  -148.868822   (d E  =  -0.00185)
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step       21  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -37.35623   -19.71492     0.30722    -0.00000     0.00000    -0.00000
+  in kB    -160.88063   -84.90550     1.32308    -0.00000     0.00000    -0.00000
+  external pressure =      -81.49 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -81.49 kB
+  Total+kin.  -160.881     -84.906       1.323      -0.000       0.000      -0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+      0.00000      0.00000      2.78536        -0.000000     -0.000000      0.010443
+      1.26315      1.26315      0.99998        -0.000000     -1.505970     -0.045358
+      1.26315      1.79469      4.20572        -0.000000      0.023349     -0.009443
+      1.26315     -0.00000      1.92031         0.000000      0.000000      0.011863
+      0.00000      1.40632      3.50794         0.000000     -0.003670     -0.004879
+      0.00000      2.52630      2.67295        -0.000000     -0.000000      0.156866
+      1.26315      3.78945      0.99998         0.000000      1.505970     -0.045358
+      1.26315      3.25791      4.20572         0.000000     -0.023349     -0.009443
+      1.26315      2.52630      1.89227         0.000000     -0.000000     -0.059811
+      0.00000      3.64628      3.50794        -0.000000      0.003670     -0.004879
+      2.52630      0.00000      2.78536         0.000000     -0.000000      0.010443
+      3.78945      1.26315      0.99998         0.000000     -1.505970     -0.045358
+      3.78945      1.79469      4.20572        -0.000000      0.023349     -0.009443
+      3.78945     -0.00000      1.92031         0.000000      0.000000      0.011863
+      2.52630      1.40632      3.50794         0.000000     -0.003670     -0.004879
+      2.52630      2.52630      2.67295         0.000000      0.000000      0.156866
+      3.78945      3.78945      0.99998        -0.000000      1.505970     -0.045358
+      3.78945      3.25791      4.20572        -0.000000     -0.023349     -0.009443
+      3.78945      2.52630      1.89227        -0.000000     -0.000000     -0.059811
+      2.52630      3.64628      3.50794        -0.000000      0.003670     -0.004879
+ -----------------------------------------------------------------------------------
+    total drift:                               -0.000000      0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.86882445 eV
+
+  ML energy  without entropy=     -148.86882445  ML energy(sigma->0) =     -148.86882445
+
+      MLFF:  cpu time      0.0089: real time      0.0089
+     LOOP+:  cpu time      0.0089: real time      0.0089
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step       22  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -37.47177   -19.35737     0.29601    -0.00000     0.00000    -0.00000
+  in kB    -161.37822   -83.36563     1.27481    -0.00000     0.00000    -0.00000
+  external pressure =      -81.16 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -81.16 kB
+  Total+kin.  -161.378     -83.366       1.275      -0.000       0.000      -0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+     -0.00000      0.00000      2.78579         0.000000     -0.000000     -0.006408
+      1.26315      1.26315      0.99998         0.000000     -1.500748     -0.032209
+      1.26315      1.79531      4.20509        -0.000000     -0.002696     -0.015907
+      1.26315      0.00000      1.92066        -0.000000      0.000000      0.010350
+      0.00000      1.40633      3.50798         0.000000     -0.018282      0.055046
+      0.00000      2.52630      2.67639        -0.000000     -0.000000     -0.010629
+      1.26315      3.78945      0.99998         0.000000      1.500748     -0.032209
+      1.26315      3.25729      4.20509         0.000000      0.002696     -0.015907
+      1.26315      2.52630      1.89302         0.000000      0.000000     -0.007173
+      0.00000      3.64627      3.50798         0.000000      0.018282      0.055046
+      2.52630      0.00000      2.78579         0.000000     -0.000000     -0.006408
+      3.78945      1.26315      0.99998        -0.000000     -1.500748     -0.032209
+      3.78945      1.79531      4.20509         0.000000     -0.002696     -0.015907
+      3.78945      0.00000      1.92066         0.000000      0.000000      0.010350
+      2.52630      1.40633      3.50798        -0.000000     -0.018282      0.055046
+      2.52630      2.52630      2.67639        -0.000000     -0.000000     -0.010629
+      3.78945      3.78945      0.99998        -0.000000      1.500748     -0.032209
+      3.78945      3.25729      4.20509        -0.000000      0.002696     -0.015907
+      3.78945      2.52630      1.89302        -0.000000     -0.000000     -0.007173
+      2.52630      3.64627      3.50798        -0.000000      0.018282      0.055046
+ -----------------------------------------------------------------------------------
+    total drift:                                0.000000     -0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.86934680 eV
+
+  ML energy  without entropy=     -148.86934680  ML energy(sigma->0) =     -148.86934680
+
+      MLFF:  cpu time      0.0089: real time      0.0089
+     LOOP+:  cpu time      0.0089: real time      0.0089
+ Conjugate gradient step on ions:
+ trial-energy change:   -0.000522  1 .order   -0.000523   -0.001089    0.000042
+  (g-gl).g = 0.284E-02      g.g   = 0.287E-02  gl.gl    = 0.631E-02
+ g(Force)  = 0.287E-02   g(Stress)= 0.000E+00 ortho     = 0.308E-04
+ gamma     =   0.45012
+ trial     =   0.37707
+ opt step  =   0.36311  (harmonic =   0.36311) maximal distance =0.00331774
+ next E    =  -148.869349   (d E  =  -0.00052)
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step       23  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -37.46746   -19.37059     0.29652    -0.00000     0.00000     0.00000
+  in kB    -161.35964   -83.42256     1.27701    -0.00000     0.00000     0.00000
+  external pressure =      -81.17 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -81.17 kB
+  Total+kin.  -161.360     -83.423       1.277      -0.000       0.000       0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+     -0.00000      0.00000      2.78577        -0.000000     -0.000000     -0.005784
+      1.26315      1.26315      0.99998        -0.000000     -1.500942     -0.032697
+      1.26315      1.79529      4.20511        -0.000000     -0.001737     -0.015657
+      1.26315      0.00000      1.92065        -0.000000      0.000000      0.010406
+      0.00000      1.40633      3.50797        -0.000000     -0.017737      0.052827
+      0.00000      2.52630      2.67627        -0.000000     -0.000000     -0.004455
+      1.26315      3.78945      0.99998         0.000000      1.500942     -0.032697
+      1.26315      3.25731      4.20511         0.000000      0.001737     -0.015657
+      1.26315      2.52630      1.89300        -0.000000     -0.000000     -0.009114
+      0.00000      3.64627      3.50797        -0.000000      0.017737      0.052827
+      2.52630      0.00000      2.78577         0.000000     -0.000000     -0.005784
+      3.78945      1.26315      0.99998        -0.000000     -1.500942     -0.032697
+      3.78945      1.79529      4.20511         0.000000     -0.001737     -0.015657
+      3.78945      0.00000      1.92065         0.000000      0.000000      0.010406
+      2.52630      1.40633      3.50797        -0.000000     -0.017737      0.052827
+      2.52630      2.52630      2.67627         0.000000      0.000000     -0.004455
+      3.78945      3.78945      0.99998         0.000000      1.500942     -0.032697
+      3.78945      3.25731      4.20511        -0.000000      0.001737     -0.015657
+      3.78945      2.52630      1.89300         0.000000     -0.000000     -0.009114
+      2.52630      3.64627      3.50797         0.000000      0.017737      0.052827
+ -----------------------------------------------------------------------------------
+    total drift:                               -0.000000      0.000000     -0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.86934758 eV
+
+  ML energy  without entropy=     -148.86934758  ML energy(sigma->0) =     -148.86934758
+
+      MLFF:  cpu time      0.0089: real time      0.0089
+     LOOP+:  cpu time      0.0089: real time      0.0089
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------- Ionic step       24  -------------------------------------------
+
+
+
+  ML FORCE on cell =-STRESS in cart. coord. units (eV/cell)
+  Direction    XX          YY          ZZ          XY          YZ          ZX
+  --------------------------------------------------------------------------------------
+  Total:    -37.42107   -19.38439     0.25721     0.00000     0.00000     0.00000
+  in kB    -161.15987   -83.48202     1.10772     0.00000     0.00000     0.00000
+  external pressure =      -81.18 kB  Pullay stress =        0.00 kB
+
+  kinetic pressure (ideal gas correction) =      0.00 kB
+  total pressure  =    -81.18 kB
+  Total+kin.  -161.160     -83.482       1.108       0.000       0.000       0.000
+  volume of cell :      372.02
+      direct lattice vectors                 reciprocal lattice vectors
+     5.052600000  0.000000000  0.000000000     0.197917904  0.000000000  0.000000000
+     0.000000000  5.052600000  0.000000000     0.000000000  0.197917904  0.000000000
+     0.000000000  0.000000000 14.572700000     0.000000000  0.000000000  0.068621463
+
+  length of vectors
+     5.052600000  5.052600000 14.572700000     0.197917904  0.197917904  0.068621463
+
+
+  POSITION                                       TOTAL-FORCE (eV/Angst) (ML)
+ -----------------------------------------------------------------------------------
+     -0.00000      0.00000      2.78577         0.000000     -0.000000      0.020193
+      1.26315      1.26315      0.99998         0.000000     -1.498839     -0.025696
+      1.26315      1.79540      4.20468         0.000000      0.005509      0.012263
+      1.26315      0.00000      1.92092         0.000000     -0.000000     -0.002074
+      0.00000      1.40601      3.50894         0.000000     -0.012847      0.002606
+      0.00000      2.52630      2.67701        -0.000000      0.000000     -0.000481
+      1.26315      3.78945      0.99998         0.000000      1.498839     -0.025696
+      1.26315      3.25720      4.20468        -0.000000     -0.005509      0.012263
+      1.26315      2.52630      1.89301         0.000000      0.000000      0.004014
+      0.00000      3.64659      3.50894        -0.000000      0.012847      0.002606
+      2.52630     -0.00000      2.78577        -0.000000     -0.000000      0.020193
+      3.78945      1.26315      0.99998        -0.000000     -1.498839     -0.025696
+      3.78945      1.79540      4.20468        -0.000000      0.005509      0.012263
+      3.78945      0.00000      1.92092        -0.000000     -0.000000     -0.002074
+      2.52630      1.40601      3.50894        -0.000000     -0.012847      0.002606
+      2.52630      2.52630      2.67701         0.000000      0.000000     -0.000481
+      3.78945      3.78945      0.99998         0.000000      1.498839     -0.025696
+      3.78945      3.25720      4.20468         0.000000     -0.005509      0.012263
+      3.78945      2.52630      1.89301        -0.000000      0.000000      0.004014
+      2.52630      3.64659      3.50894        -0.000000      0.012847      0.002606
+ -----------------------------------------------------------------------------------
+    total drift:                               -0.000000      0.000000      0.000000
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+  ML FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
+  ---------------------------------------------------
+  free  energy ML TOTEN  =      -148.86947593 eV
+
+  ML energy  without entropy=     -148.86947593  ML energy(sigma->0) =     -148.86947593
+
+      MLFF:  cpu time      0.0089: real time      0.0089
+     LOOP+:  cpu time      0.0089: real time      0.0089
+ Conjugate gradient step on ions:
+ trial-energy change:   -0.000128  1 .order   -0.000128   -0.000251   -0.000006
+  (g-gl).g = 0.696E-03      g.g   = 0.671E-03  gl.gl    = 0.287E-02
+ g(Force)  = 0.671E-03   g(Stress)= 0.000E+00 ortho     =-0.579E-06
+ gamma     =   0.24223
+ trial     =   0.37428
+ opt step  =   0.38313  (harmonic =   0.38313) maximal distance =0.00098488
+ next E    =  -148.869476   (d E  =  -0.00013)
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+  
+ reached required accuracy - stopping structural energy minimisation
+      MLFF:  cpu time      0.0017: real time      0.0017
+     LOOP+:  cpu time      0.0017: real time      0.0017
+
+ total amount of memory used by VASP MPI-rank0    30000. kBytes
+=======================================================================
+
+   base      :      30000. kBytes
+
+  
+  
+ General timing and accounting informations for this job:
+ ========================================================
+  
+                  Total CPU time used (sec):        0.513
+                            User time (sec):        0.462
+                          System time (sec):        0.051
+                         Elapsed time (sec):        0.710
+  
+                   Maximum memory used (kb):       43084.
+                   Average memory used (kb):          N/A
+  
+                          Minor page faults:         4427
+                          Major page faults:            0
+                 Voluntary context switches:         1239

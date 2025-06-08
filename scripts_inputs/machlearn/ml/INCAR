@@ -1,0 +1,44 @@
+SYSTEM = c16
+ISYM   = 0        ! no symmetry imposed
+
+#%%%%% ab initio part
+ALGO   = Very Fast
+PREC   = Normal
+IVDW   = 10      ! use vdW contribution
+
+ISMEAR = 1      ! Fermi smearing
+SIGMA  = 0.1  ! smearing in eV
+AMIX   = 0.2
+
+ENCUT  = 800  ! what encut use?
+EDIFF  = 1e-6
+
+LWAVE  = F
+LCHARG = F
+
+LREAL  = F
+
+#%%%%% Molecular dynamics 
+
+IBRION = 0        ! MD (treat ionic degrees of freedom)
+NSW    = 10000    ! no of ionic steps
+POTIM  = 1.5      ! MD time step in fs
+
+MDALGO = 3                ! Langevin thermostat
+LANGEVIN_GAMMA   = 1      ! friction
+LANGEVIN_GAMMA_L = 10     ! lattice friction
+PMASS  = 10               ! lattice mass
+TEBEG  = 400              ! temperature
+
+ISIF   = 3        ! update positions, cell shape and volume
+
+! machine learning
+ML_LMLFF  = T
+ML_ISTART = 0
+ML_WTSIF  = 2
+
+RANDOM_SEED =         688344966                0                0
+
+#%%%%%%%%%% PARALLELIZATION %%%%%%%%%%%%%%%%%%%%%%%
+NCORE=1 ! cores per procesor
+NSIM=4  ! 

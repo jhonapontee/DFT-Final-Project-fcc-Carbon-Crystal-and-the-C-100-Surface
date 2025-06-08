@@ -1,0 +1,35 @@
+ running    4 mpi-ranks, with    1 threads/rank, on    1 nodes
+ distrk:  each k-point on    4 cores,    1 groups
+ distr:  one band on    1 cores,    4 groups
+ vasp.6.4.2 20Jul23 (build Oct 18 2023 12:49:41) complex                         
+ POSCAR found type information on POSCAR C 
+ POSCAR found :  1 types and       5 ions
+ Reading from existing POTCAR
+ scaLAPACK will be used
+ Reading from existing POTCAR
+ LDA part: xc-table for Pade appr. of Perdew
+ Machine learning selected
+ Setting communicators for machine learning
+ Initializing machine learning
+ The following ML algorithm is executed for production run: FULL.
+ -----------------------------------------------------------------------------
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|     Your FFT grids (NGX,NGY,NGZ) are not sufficient for an accurate         |
+|     calculation. Thus, the results might be wrong. Good settings for        |
+|     NGX, NGY and NGZ are 2, 2 and 4, respectively.                          |
+|     Mind: This setting results in a small but reasonable wrap-around        |
+|     error. It is also necessary to adjust these values to the FFT           |
+|     routines you use.                                                       |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ entering main loop
+   1 F= -.45120383E+02 E0= -.45120383E+02  d E =0.000000E+00

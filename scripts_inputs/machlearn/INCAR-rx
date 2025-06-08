@@ -1,0 +1,23 @@
+SYSTEM = carbon 100
+
+#ISMEAR = -5      # Wavefunction occupancies
+ISMEAR = 1 ; SIGMA = 0.2
+ENCUT  = 800  ! what encut use?
+LREAL=auto
+ALGO=F
+
+#%%% dipole corrections for surfaces
+IDIPOL = 3
+LDIPOL = T
+
+#ISTART = 1
+LCHARG = .FALSE. # Do not write charge density to save time
+
+#%%% For relaxation
+NSW = 30 # allow 30 ionic steps
+ISIF = 2 # relax ions only
+IBRION = 1 # use CG algorithm
+POTIM = 0.5 # trial step
+EDIFFG = -0.025 # max force allowed
+ADDGRID = T
+

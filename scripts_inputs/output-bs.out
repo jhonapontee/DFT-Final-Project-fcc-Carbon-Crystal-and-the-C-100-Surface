@@ -1,0 +1,79 @@
+ running    4 mpi-ranks, with    1 threads/rank, on    1 nodes
+ distrk:  each k-point on    4 cores,    1 groups
+ distr:  one band on    1 cores,    4 groups
+ vasp.6.4.2 20Jul23 (build Oct 18 2023 12:49:41) complex                         
+ POSCAR found type information on POSCAR C 
+ POSCAR found :  1 types and       2 ions
+ Reading from existing POTCAR
+ scaLAPACK will be used
+ Reading from existing POTCAR
+ LDA part: xc-table for Pade appr. of Perdew
+ found WAVECAR, reading the header
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ... GRIDC
+ FFT: planning ... GRID_SOFT
+ FFT: planning ... GRID
+ reading WAVECAR
+ the WAVECAR file was read successfully
+ initial charge from wavefunction
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.182001895205E+02   -0.18200E+02   -0.17215E-05   320   0.444E-02    0.579E-03
+DAV:   2    -0.182001893531E+02    0.16746E-06   -0.97394E-07   232   0.123E-02
+   1 F= -.18200189E+02 E0= -.18200189E+02  d E =0.000000E+00
+ Start KPOINTS_OPT (optional k-point list driver)
+ -----------------------------------------------------------------------------
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|     Changing the smearing to ISMEAR=1 (the default) for those parts of      |
+|     this job that use k-points specified in line-mode.                      |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+k-point batch [1-29\140]
+       N       E                     dE             ncg
+DAV:   1     0.181393259936E+04   -0.67046E+04      464
+DAV:   2     0.530808504081E+03   -0.12831E+04      652
+DAV:   3     0.479479494735E+03   -0.51329E+02      548
+DAV:   4     0.479217937190E+03   -0.26156E+00      504
+DAV:   5     0.479216913941E+03   -0.10232E-02      508
+DAV:   6     0.479216903343E+03   -0.10598E-04      348
+k-point batch [30-58\140]
+       N       E                     dE             ncg
+DAV:   1     0.210540258232E+04   -0.27294E+04      464
+DAV:   2     0.752199073819E+03   -0.13532E+04      660
+DAV:   3     0.706450960211E+03   -0.45748E+02      504
+DAV:   4     0.706310616568E+03   -0.14034E+00      532
+DAV:   5     0.706310147014E+03   -0.46955E-03      464
+DAV:   6     0.706310138052E+03   -0.89617E-05      320
+k-point batch [59-87\140]
+       N       E                     dE             ncg
+DAV:   1     0.978432811373E+03   -0.16612E+05      464
+DAV:   2     0.608224385529E+02   -0.91761E+03      636
+DAV:   3     0.334027364665E+02   -0.27420E+02      568
+DAV:   4     0.332841579678E+02   -0.11858E+00      528
+DAV:   5     0.332836775084E+02   -0.48046E-03      516
+DAV:   6     0.332836700455E+02   -0.74629E-05      400
+k-point batch [88-116\140]
+       N       E                     dE             ncg
+DAV:   1     0.990927791233E+03   -0.16795E+05      464
+DAV:   2     0.312461936104E+01   -0.98780E+03      596
+DAV:   3    -0.318147789600E+02   -0.34939E+02      624
+DAV:   4    -0.319503813073E+02   -0.13560E+00      508
+DAV:   5    -0.319508878577E+02   -0.50655E-03      552
+DAV:   6    -0.319508982096E+02   -0.10352E-04      340
+k-point batch [117-140\140]
+       N       E                     dE             ncg
+DAV:   1     0.409632141141E+04   -0.33808E+04      384
+DAV:   2     0.294875438585E+04   -0.11476E+04      544
+DAV:   3     0.290827188487E+04   -0.40483E+02      436
+DAV:   4     0.290812866746E+04   -0.14322E+00      436
+DAV:   5     0.290812819113E+04   -0.47634E-03      380
+DAV:   6     0.290812818069E+04   -0.10434E-04      272
+ writing wavefunctions

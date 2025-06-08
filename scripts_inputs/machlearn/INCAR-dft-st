@@ -1,0 +1,26 @@
+SYSTEM = C
+ISYM   = 0        ! no symmetry imposed
+
+#%%%%% ab initio part
+ALGO   = Very Fast
+PREC   = Normal
+IVDW   = 10      ! use vdW contribution
+
+ISMEAR = 1      ! Fermi smearing
+SIGMA  = 0.1  ! smearing in eV
+AMIX   = 0.2
+
+ENCUT  = 800  ! what encut use?
+EDIFF  = 1e-6
+
+
+LWAVE  = F
+LCHARG = F
+
+LREAL  = F
+
+#%%% dipole corrections for surfaces
+#IDIPOL = 3
+#LDIPOL = T
+
+

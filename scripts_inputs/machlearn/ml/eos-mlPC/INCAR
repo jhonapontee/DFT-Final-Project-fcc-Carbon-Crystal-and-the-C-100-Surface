@@ -1,0 +1,10 @@
+SYSTEM = fcc c
+
+! machine learning
+ML_LMLFF  = T
+ML_ISTART = 2
+
+RANDOM_SEED =         688344966                0                0
+#%%%%%%%%%% PARALLELIZATION %%%%%%%%%%%%%%%%%%%%%%%
+NCORE=1 ! cores per procesor
+NSIM=4  ! 

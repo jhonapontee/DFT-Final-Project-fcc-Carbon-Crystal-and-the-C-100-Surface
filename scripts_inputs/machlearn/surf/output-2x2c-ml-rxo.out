@@ -1,0 +1,131 @@
+ running    6 mpi-ranks, with    1 threads/rank, on    1 nodes
+ distrk:  each k-point on    6 cores,    1 groups
+ distr:  one band on    1 cores,    6 groups
+ vasp.6.4.2 20Jul23 (build Oct 18 2023 12:49:41) complex                         
+ POSCAR found type information on POSCAR C 
+ POSCAR found :  1 types and      20 ions
+ Reading from existing POTCAR
+ scaLAPACK will be used
+ Reading from existing POTCAR
+ -----------------------------------------------------------------------------
+|                                                                             |
+|               ----> ADVICE to this user running VASP <----                  |
+|                                                                             |
+|     You have a (more or less) 'large supercell' and for larger cells it     |
+|     might be more efficient to use real-space projection operators.         |
+|     Therefore, try LREAL= Auto in the INCAR file.                           |
+|     Mind: For very accurate calculation, you might also keep the            |
+|     reciprocal projection scheme (i.e. LREAL=.FALSE.).                      |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+ LDA part: xc-table for Pade appr. of Perdew
+ Machine learning selected
+ Setting communicators for machine learning
+ Initializing machine learning
+ The following ML algorithm is executed for production run: FULL.
+ -----------------------------------------------------------------------------
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|     Your FFT grids (NGX,NGY,NGZ) are not sufficient for an accurate         |
+|     calculation. Thus, the results might be wrong. Good settings for        |
+|     NGX, NGY and NGZ are 2, 2 and 4, respectively.                          |
+|     Mind: This setting results in a small but reasonable wrap-around        |
+|     error. It is also necessary to adjust these values to the FFT           |
+|     routines you use.                                                       |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ entering main loop
+   1 F= -.14287666E+03 E0= -.14287666E+03  d E =-.142877E+03
+ curvature:   0.00 expect dE= 0.000E+00 dE for cont linesearch  0.000E+00
+ trial: gam= 0.00000 g(F)=  0.160E+02 g(S)=  0.000E+00 ort = 0.000E+00 (trialstep = 0.100E+01)
+ search vector abs. value=  0.160E+02
+   2 F= -.14255929E+03 E0= -.14255929E+03  d E =0.317367E+00
+ trial-energy change:    0.317367  1 .order   -4.368870  -16.041022    7.303282
+ step:   0.3985(harm=  0.6871)  dis= 0.13346  next Energy=  -145.775999 (dE=-0.290E+01)
+   3 F= -.14607977E+03 E0= -.14607977E+03  d E =-.320312E+01
+ curvature:  -0.05 expect dE=-0.223E+00 dE for cont linesearch -0.255E-03
+ trial: gam= 0.25436 g(F)=  0.436E+01 g(S)=  0.000E+00 ort = 0.283E+00 (trialstep = 0.880E+00)
+ search vector abs. value=  0.555E+01
+   4 F= -.14699645E+03 E0= -.14699645E+03  d E =-.916678E+00
+ trial-energy change:   -0.916678  1 .order   -0.841546   -3.901954    2.218862
+ step:   0.5755(harm=  0.5608)  dis= 0.06997  next Energy=  -147.377037 (dE=-0.130E+01)
+   5 F= -.14739284E+03 E0= -.14739284E+03  d E =-.131307E+01
+ curvature:  -0.35 expect dE=-0.198E+01 dE for cont linesearch -0.150E-03
+ trial: gam= 1.29092 g(F)=  0.567E+01 g(S)=  0.000E+00 ort =-0.487E-01 (trialstep = 0.307E+00)
+ search vector abs. value=  0.148E+02
+   6 F= -.14826122E+03 E0= -.14826122E+03  d E =-.868375E+00
+ trial-energy change:   -0.868375  1 .order   -0.758050   -1.722331    0.206232
+ step:   0.2821(harm=  0.2742)  dis= 0.08287  next Energy=  -148.269543 (dE=-0.877E+00)
+   7 F= -.14826969E+03 E0= -.14826969E+03  d E =-.876844E+00
+ curvature:  -0.34 expect dE=-0.475E+00 dE for cont linesearch -0.250E-05
+ trial: gam=-0.08563 g(F)=  0.139E+01 g(S)=  0.000E+00 ort =-0.104E-01 (trialstep = 0.302E+00)
+ search vector abs. value=  0.150E+01
+   8 F= -.14845906E+03 E0= -.14845906E+03  d E =-.189377E+00
+ trial-energy change:   -0.189377  1 .order   -0.188262   -0.421582    0.045059
+ step:   0.2733(harm=  0.2729)  dis= 0.02077  next Energy=  -148.461210 (dE=-0.192E+00)
+   9 F= -.14846121E+03 E0= -.14846121E+03  d E =-.191528E+00
+ curvature:  -0.15 expect dE=-0.611E-01 dE for cont linesearch -0.751E-08
+ trial: gam= 0.28503 g(F)=  0.415E+00 g(S)=  0.000E+00 ort =-0.277E-03 (trialstep = 0.296E+00)
+ search vector abs. value=  0.537E+00
+  10 F= -.14855351E+03 E0= -.14855351E+03  d E =-.922934E-01
+ trial-energy change:   -0.092293  1 .order   -0.091914   -0.122946   -0.060883
+ step:   0.5679(harm=  0.5870)  dis= 0.01394  next Energy=  -148.581703 (dE=-0.120E+00)
+  11 F= -.14858171E+03 E0= -.14858171E+03  d E =-.120497E+00
+ curvature:  -0.38 expect dE=-0.657E-01 dE for cont linesearch -0.757E-08
+ trial: gam= 0.40428 g(F)=  0.174E+00 g(S)=  0.000E+00 ort = 0.104E-03 (trialstep = 0.351E+00)
+ search vector abs. value=  0.261E+00
+  12 F= -.14863214E+03 E0= -.14863214E+03  d E =-.504315E-01
+ trial-energy change:   -0.050432  1 .order   -0.050385   -0.060885   -0.039885
+ step:   1.0167(harm=  1.0167)  dis= 0.01299  next Energy=  -148.669975 (dE=-0.883E-01)
+  13 F= -.14866891E+03 E0= -.14866891E+03  d E =-.871945E-01
+ curvature:  -0.77 expect dE=-0.201E+00 dE for cont linesearch -0.528E-04
+ trial: gam= 1.45964 g(F)=  0.262E+00 g(S)=  0.000E+00 ort =-0.425E-02 (trialstep = 0.157E+00)
+ search vector abs. value=  0.807E+00
+  14 F= -.14870353E+03 E0= -.14870353E+03  d E =-.346204E-01
+ trial-energy change:   -0.034620  1 .order   -0.034612   -0.040118   -0.029105
+ step:   0.5713(harm=  0.5713)  dis= 0.00318  next Energy=  -148.741975 (dE=-0.731E-01)
+  15 F= -.14874155E+03 E0= -.14874155E+03  d E =-.726409E-01
+ curvature:  -0.90 expect dE=-0.225E+00 dE for cont linesearch -0.774E-05
+ trial: gam= 0.89911 g(F)=  0.250E+00 g(S)=  0.000E+00 ort =-0.263E-02 (trialstep = 0.216E+00)
+ search vector abs. value=  0.897E+00
+  16 F= -.14878710E+03 E0= -.14878710E+03  d E =-.455536E-01
+ trial-energy change:   -0.045554  1 .order   -0.045517   -0.053317   -0.037716
+ step:   0.7366(harm=  0.7366)  dis= 0.01529  next Energy=  -148.832651 (dE=-0.911E-01)
+  17 F= -.14883106E+03 E0= -.14883106E+03  d E =-.895137E-01
+ curvature:  -1.34 expect dE=-0.287E+00 dE for cont linesearch -0.967E-04
+ trial: gam= 0.87714 g(F)=  0.215E+00 g(S)=  0.000E+00 ort =-0.806E-02 (trialstep = 0.320E+00)
+ search vector abs. value=  0.891E+00
+  18 F= -.14886677E+03 E0= -.14886677E+03  d E =-.357111E-01
+ trial-energy change:   -0.035711  1 .order   -0.035726   -0.066481   -0.004970
+ step:   0.3456(harm=  0.3456)  dis= 0.00633  next Energy=  -148.866988 (dE=-0.359E-01)
+  19 F= -.14886697E+03 E0= -.14886697E+03  d E =-.359123E-01
+ curvature:  -0.74 expect dE=-0.467E-02 dE for cont linesearch -0.693E-09
+ trial: gam=-0.00169 g(F)=  0.631E-02 g(S)=  0.000E+00 ort = 0.289E-04 (trialstep = 0.325E+00)
+ search vector abs. value=  0.632E-02
+  20 F= -.14886845E+03 E0= -.14886845E+03  d E =-.148098E-02
+ trial-energy change:   -0.001481  1 .order   -0.001482   -0.002051   -0.000913
+ step:   0.5856(harm=  0.5856)  dis= 0.00637  next Energy=  -148.868822 (dE=-0.185E-02)
+  21 F= -.14886882E+03 E0= -.14886882E+03  d E =-.185068E-02
+ curvature:  -0.29 expect dE=-0.842E-03 dE for cont linesearch -0.440E-07
+ trial: gam= 0.45012 g(F)=  0.287E-02 g(S)=  0.000E+00 ort = 0.308E-04 (trialstep = 0.377E+00)
+ search vector abs. value=  0.418E-02
+  22 F= -.14886935E+03 E0= -.14886935E+03  d E =-.522342E-03
+ trial-energy change:   -0.000522  1 .order   -0.000523   -0.001089    0.000042
+ step:   0.3631(harm=  0.3631)  dis= 0.00332  next Energy=  -148.869349 (dE=-0.524E-03)
+  23 F= -.14886935E+03 E0= -.14886935E+03  d E =-.523122E-03
+ curvature:  -0.26 expect dE=-0.176E-03 dE for cont linesearch -0.211E-10
+ trial: gam= 0.24223 g(F)=  0.671E-03 g(S)=  0.000E+00 ort =-0.579E-06 (trialstep = 0.374E+00)
+ search vector abs. value=  0.916E-03
+  24 F= -.14886948E+03 E0= -.14886948E+03  d E =-.128360E-03
+ trial-energy change:   -0.000128  1 .order   -0.000128   -0.000251   -0.000006
+ step:   0.3831(harm=  0.3831)  dis= 0.00098  next Energy=  -148.869476 (dE=-0.128E-03)
+ reached required accuracy - stopping structural energy minimisation

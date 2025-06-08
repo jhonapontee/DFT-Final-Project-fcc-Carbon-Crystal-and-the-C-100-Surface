@@ -1,0 +1,45 @@
+SYSTEM = C100
+ISYM   = 0        ! no symmetry imposed
+
+#%%%%% ab initio part
+ALGO   = Very Fast
+PREC   = Normal
+IVDW   = 10     ! use vdW contribution
+
+ISMEAR = 1      ! Fermi smearing
+SIGMA  = 0.1    ! smearing in eV
+AMIX   = 0.2
+
+ENCUT  = 800  ! what encut use?
+EDIFF  = 1e-6
+
+LWAVE  = F
+LCHARG = F
+
+LREAL  = F
+
+#%%%%%%%%%% DIPOLE CORRECTIONS %%%%%%%%%%%%%%%%%%%%%%%
+IDIPOL=3      ! corrections along z
+LDIPOL=.TRUE.
+
+#%%%%% NVT Molecular dynamics 
+
+ IBRION = 0                   # choose molecular dynamics
+ MDALGO = 2                   # using Langevin thermostat
+ ISIF = 2                     # compute stress tensor but do not change box volume/shape
+ TEBEG = 400                  # set temperature
+ NSW = 250                    # number of time steps
+ POTIM = 1.5                  # time step in femto seconds
+ SMASS = 1.0                  # setting the virtual mass for the Nose-Hoover thermostat
+ NBLOCK = 10                  # after NBLOCK ionic steps configuration written to XDATCAR
+
+! machine learning
+ML_LMLFF  = T
+ML_MODE = train 
+ML_WTSIF  = 1E-10            #no stress by vacuum in slab
+
+RANDOM_SEED =         688344966                0                0
+
+#%%%%%%%%%% PARALLELIZATION %%%%%%%%%%%%%%%%%%%%%%%
+NCORE=1 ! cores per procesor
+NSIM=4  ! 

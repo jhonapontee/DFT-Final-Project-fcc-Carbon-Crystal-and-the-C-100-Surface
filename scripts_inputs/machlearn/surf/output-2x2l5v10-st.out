@@ -1,0 +1,27 @@
+ running    8 mpi-ranks, with    1 threads/rank, on    1 nodes
+ distrk:  each k-point on    8 cores,    1 groups
+ distr:  one band on    1 cores,    8 groups
+ vasp.6.4.2 20Jul23 (build Oct 18 2023 12:49:41) complex                         
+ POSCAR found type information on POSCAR C H 
+ POSCAR found :  2 types and      28 ions
+ Reading from existing POTCAR
+ scaLAPACK will be used
+ Reading from existing POTCAR
+ LDA part: xc-table for Pade appr. of Perdew
+ found WAVECAR, reading the header
+  number of k-points has changed, file:     5 present:     4
+  trying to continue reading WAVECAR, but it might fail
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ... GRIDC
+ FFT: planning ... GRID_SOFT
+ FFT: planning ... GRID
+ reading WAVECAR
+ the WAVECAR file was read successfully
+ initial charge from wavefunction
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.195412179670E+03   -0.19541E+03   -0.66793E-05   424   0.368E-02    0.686E-02
+RMM:   2    -0.195411677063E+03    0.50261E-03   -0.74319E-04   509   0.609E-02    0.376E-02
+RMM:   3    -0.195411596852E+03    0.80211E-04   -0.60805E-04   520   0.554E-02
+   1 F= -.19541160E+03 E0= -.19541160E+03  d E =0.000000E+00
+ writing wavefunctions
