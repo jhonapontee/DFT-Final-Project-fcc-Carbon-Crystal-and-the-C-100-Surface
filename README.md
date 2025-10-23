@@ -53,28 +53,8 @@ The goal is to **automate DFT workflows on HPC clusters**, extract relevant prop
 ├── docs/                      # Guides, cheatsheets, Overleaf templates
 │
 └── env/                       # Environment files (requirements.txt, environment.yml)
-
 ---
 
-## ⚙️ Installation
-
-```bash
-
-1. Clone the repository:
-git clone https://github.com/username/dft-ml-project.git
-cd dft-ml-project
-
----
-
-## 🖥️ Usage
-
-```bash
-
-Run convergence studies:
-bash scripts/vasp_tools/make_encut_grid.sh --encut "380 420 460 500" --template INCAR.base
-bash scripts/run_slurm/submit_encut.sh --dir studies/encut --partition compute --time 02:00:00
-
----
 
 
 
