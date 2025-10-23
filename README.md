@@ -53,8 +53,8 @@ The goal is to **automate DFT workflows on HPC clusters**, extract relevant prop
 ├── docs/                      # Guides, cheatsheets, Overleaf templates
 │
 └── env/                       # Environment files (requirements.txt, environment.yml)
----
 
+---
 
 
 
