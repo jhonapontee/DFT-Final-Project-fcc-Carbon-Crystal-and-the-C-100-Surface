@@ -54,7 +54,6 @@ The goal is to **automate DFT workflows on HPC clusters**, extract relevant prop
 │
 └── env/                       # Environment files (requirements.txt, environment.yml)
 
----
 
 
 
