@@ -30,5 +30,5 @@ The goal is to **automate DFT workflows on HPC clusters**, extract relevant prop
 ---
 
 ## 📂 Repository Structure
-
+├── scripts/ # DFT automation and job management │ ├── run_slurm/ # Slurm job profiles and launchers │ ├── run_pbs/ # PBS/Torque job profiles and launchers │ ├── vasp_tools/ # KPOINTS generation, POSCAR validation │ └── extract/ # OUTCAR/OSZICAR parsers and table builders │ ├── ml/ # Machine Learning pipelines │ ├── features/ # Feature engineering │ ├── models/ # Training and saving ML models │ └── eval/ # Evaluation and metrics │ ├── data/ # Raw and processed datasets │ ├── raw/ # Original DFT outputs │ └── processed/ # Clean tables and ML-ready datasets │ ├── viz/ # Visualization scripts and figures ├── docs/ # Guides, cheatsheets, Overleaf templates └── env/ # Environment files (requirements.txt, environment.yml)
 
