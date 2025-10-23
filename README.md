@@ -62,7 +62,7 @@ cd dft-ml-project
 conda env create -f env/environment.yml
 conda activate dft-ml
 
-🖥️ Usage
+## 🖥️ Usage
 bash scripts/vasp_tools/make_encut_grid.sh --encut "380 420 460 500" --template INCAR.base
 bash scripts/run_slurm/submit_encut.sh --dir studies/encut --partition compute --time 02:00:00
 
@@ -76,7 +76,7 @@ python ml/models/train.py --features data/processed/features_encut.csv --target 
 4. Visualize results
 python viz/plot_convergence.py --table data/processed/encut_table.csv --x ENCUT --y Etot --out viz/figs/encut_convergence.png
 
-🤝 Contributing
+## 🤝 Contributing
 Open issues with minimal reproducible examples.
 
 Submit PRs with tests in tests/ and PEP8 style compliance.
